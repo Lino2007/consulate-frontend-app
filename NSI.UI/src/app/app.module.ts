@@ -1,0 +1,120 @@
+import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
+import {FormsModule} from '@angular/forms';
+
+
+import {AccordionModule} from 'primeng/accordion';     //accordion and accordion tab
+import {MenuItem} from 'primeng/api';                  //api
+
+import {InputTextModule} from 'primeng/inputtext';
+import {CheckboxModule} from 'primeng/checkbox';
+import {RadioButtonModule} from 'primeng/radiobutton';
+import {ButtonModule} from 'primeng/button';
+import {TabViewModule} from 'primeng/tabview';
+import {RippleModule} from 'primeng/ripple';
+
+
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { NewsListComponent } from './public/news-list/news-list.component';
+import { NewsItemComponent } from './public/news-item/news-item.component';
+
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+
+import {CarouselModule} from 'primeng/carousel';
+import {TabMenuModule} from 'primeng/tabmenu';
+
+import { MsalInterceptor, MsalRedirectComponent, MSAL_GUARD_CONFIG, MSAL_INTERCEPTOR_CONFIG, MsalModule, MsalService, MSAL_INSTANCE, MsalInterceptorConfiguration, MsalGuardConfiguration, MsalGuard } from '@azure/msal-angular';
+import { BrowserCacheLocation, Configuration, InteractionType, IPublicClientApplication, PublicClientApplication } from '@azure/msal-browser';
+import { environment } from 'src/environments/environment';
+
+const isIE = window.navigator.userAgent.indexOf('MSIE ') > -1 || window.navigator.userAgent.indexOf('Trident/') > -1;
+
+export function MSALInstanceFactory(): IPublicClientApplication {
+  return new PublicClientApplication({
+    auth: {
+      clientId: environment.clientId,
+      redirectUri: environment.appRedirectUri,
+      authority: environment.loginRedirectUri,
+      postLogoutRedirectUri: environment.appRedirectUri
+    },
+    cache: {
+      cacheLocation: BrowserCacheLocation.LocalStorage,
+      storeAuthStateInCookie: false
+    }
+  });
+}
+
+export function MSALGuardConfigFactory(): MsalGuardConfiguration {
+  return { 
+    interactionType: InteractionType.Redirect,
+    authRequest: {
+      scopes: ['user.read']
+    },
+    loginFailedRoute: ""
+  };
+}
+
+export function MSALInterceptorConfigFactory(): MsalInterceptorConfiguration {
+  const protectedResourceMap = new Map<string, Array<string>>();
+  environment.protected.forEach(element => {
+    protectedResourceMap.set(element[0], [element[1]]);
+  });
+  return {
+    interactionType: InteractionType.Redirect,
+    protectedResourceMap
+  };
+}
+
+
+@NgModule({
+  declarations: [
+    AppComponent,
+    NewsListComponent,
+    NewsItemComponent
+  ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    InputTextModule,
+    ButtonModule,
+    CheckboxModule,
+    RadioButtonModule,
+    RippleModule,
+    TabViewModule,
+    FormsModule,
+    BrowserAnimationsModule,
+    HttpClientModule,
+    CarouselModule,
+    TabMenuModule,
+    MsalModule
+  ],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: MsalInterceptor,
+      multi: true
+    },
+    {
+      provide: MSAL_INSTANCE,
+      useFactory: MSALInstanceFactory
+    },
+    {
+      provide: MSAL_INTERCEPTOR_CONFIG,
+      useFactory: MSALInterceptorConfigFactory
+    },
+    {
+      provide: MSAL_GUARD_CONFIG,
+      useFactory: MSALGuardConfigFactory
+    },
+    MsalService,
+    MsalGuard,
+  ],
+  bootstrap: [
+    AppComponent,
+    MsalRedirectComponent
+  ]
+})
+export class AppModule { }
