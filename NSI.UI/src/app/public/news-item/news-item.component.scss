@@ -1,0 +1,24 @@
+p {
+    font-style: italic;
+    color: grey;
+    font-size: small;
+}
+
+p:hover {
+    opacity: 1;
+    background-color: rgb(246, 242, 242);
+}
+
+.subitems {
+    font-size: small;
+}
+
+.title {
+    font-weight: bold;
+    padding: 10px;
+}
+
+
+* {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
