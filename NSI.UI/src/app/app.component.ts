@@ -12,15 +12,15 @@ import { filter, takeUntil } from 'rxjs/operators';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'NSI.UI';
+  title = 'NSI.UI.ECHO';
   menuItems = [];
   private readonly _destroying$ = new Subject<void>();
 
-  constructor (private authService:MsalService, 
-              private msalBroadcastService:MsalBroadcastService, 
+  constructor (private authService:MsalService,
+              private msalBroadcastService:MsalBroadcastService,
               private primengConfig: PrimeNGConfig) {
   }
-  
+
   ngOnInit() {
     this.primengConfig.ripple = true;
 

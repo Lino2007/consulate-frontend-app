@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 
 import {AccordionModule} from 'primeng/accordion';     //accordion and accordion tab
@@ -29,6 +29,12 @@ import {TabMenuModule} from 'primeng/tabmenu';
 import { MsalInterceptor, MsalRedirectComponent, MSAL_GUARD_CONFIG, MSAL_INTERCEPTOR_CONFIG, MsalModule, MsalService, MSAL_INSTANCE, MsalInterceptorConfiguration, MsalGuardConfiguration, MsalGuard } from '@azure/msal-angular';
 import { BrowserCacheLocation, Configuration, InteractionType, IPublicClientApplication, PublicClientApplication } from '@azure/msal-browser';
 import { environment } from 'src/environments/environment';
+import { LoginComponent } from './public/login/login.component';
+import { RegisterComponent } from './public/register/register.component';
+import { DashboardComponent } from './public/dashboard/dashboard.component';
+import { HomeComponent } from './public/home/home.component';
+import {NotifierModule} from "angular-notifier";
+import {AvatarModule} from "primeng/avatar";
 
 const isIE = window.navigator.userAgent.indexOf('MSIE ') > -1 || window.navigator.userAgent.indexOf('Trident/') > -1;
 
@@ -48,7 +54,7 @@ export function MSALInstanceFactory(): IPublicClientApplication {
 }
 
 export function MSALGuardConfigFactory(): MsalGuardConfiguration {
-  return { 
+  return {
     interactionType: InteractionType.Redirect,
     authRequest: {
       scopes: ['user.read']
@@ -73,24 +79,31 @@ export function MSALInterceptorConfigFactory(): MsalInterceptorConfiguration {
   declarations: [
     AppComponent,
     NewsListComponent,
-    NewsItemComponent
+    NewsItemComponent,
+    LoginComponent,
+    RegisterComponent,
+    DashboardComponent,
+    HomeComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    InputTextModule,
-    ButtonModule,
-    CheckboxModule,
-    RadioButtonModule,
-    RippleModule,
-    TabViewModule,
-    FormsModule,
-    BrowserAnimationsModule,
-    HttpClientModule,
-    CarouselModule,
-    TabMenuModule,
-    MsalModule
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        InputTextModule,
+        ButtonModule,
+        CheckboxModule,
+        RadioButtonModule,
+        RippleModule,
+        TabViewModule,
+        FormsModule,
+        ReactiveFormsModule,
+        NotifierModule,
+        BrowserAnimationsModule,
+        HttpClientModule,
+        CarouselModule,
+        TabMenuModule,
+        MsalModule,
+        AvatarModule
+    ],
   providers: [
     {
       provide: HTTP_INTERCEPTORS,

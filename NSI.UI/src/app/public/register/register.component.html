@@ -1,0 +1,98 @@
+<div class="container">
+  <div class="screen">
+    <div class="screen__content">
+      <form class="login" [formGroup]="form" (ngSubmit)="onSubmit()">
+        <h4 class="title">REGISTER</h4>
+
+        <div class="login__field">
+          <input id="firstName"
+                 type="text"
+                 class="login__input"
+                 formControlName="firstName"
+                 aria-describedby="firstName-help firstName-help1"
+                 [ngClass]="{ 'ng-invalid': submitted && f.username.errors }"
+                 pInputText
+                 placeholder="First name">
+          <div *ngIf="submitted && f.username.errors" class="error">
+            <small id="firstName-help" class="p-error" *ngIf="f.username.errors.required">Username is required.</small>
+            <small id="firstName-help1" class="p-error" *ngIf="f.username.errors.minlength">Username must be at least 2 characters.</small>
+          </div>
+        </div>
+
+        <div class="login__field">
+          <input id="lastName"
+                 type="text"
+                 class="login__input"
+                 formControlName="lastName"
+                 aria-describedby="lastName-help firstName-help1"
+                 [ngClass]="{ 'ng-invalid': submitted && f.username.errors }"
+                 pInputText
+                 placeholder="Last name">
+          <div *ngIf="submitted && f.username.errors" class="error">
+            <small id="lastName-help" class="p-error" *ngIf="f.username.errors.required">Username is required.</small>
+            <small id="lastName-help1" class="p-error" *ngIf="f.username.errors.minlength">Username must be at least 2 characters.</small>
+          </div>
+        </div>
+
+        <div class="login__field">
+          <input id="email"
+                 type="email"
+                 class="login__input"
+                 formControlName="email"
+                 aria-describedby="email-help email-help1"
+                 [ngClass]="{ 'ng-invalid': submitted && f.username.errors }"
+                 pInputText
+                 placeholder="Last name">
+          <div *ngIf="submitted && f.username.errors" class="error">
+            <small id="email-help" class="p-error" *ngIf="f.username.errors.required">Username is required.</small>
+            <small id="email-help1" class="p-error" *ngIf="f.username.errors.minlength">Username must be at least 2 characters.</small>
+          </div>
+        </div>
+
+        <div class="login__field">
+          <input id="username"
+                 type="username"
+                 class="login__input"
+                 formControlName="username"
+                 aria-describedby="username-help username-help1"
+                 [ngClass]="{ 'ng-invalid': submitted && f.username.errors }"
+                 pInputText
+                 placeholder="Username">
+          <div *ngIf="submitted && f.username.errors" class="error">
+            <small id="username-help" class="p-error" *ngIf="f.username.errors.required">Username is required.</small>
+            <small id="username-help1" class="p-error" *ngIf="f.username.errors.minlength">Username must be at least 2 characters.</small>
+          </div>
+        </div>
+
+        <div class="login__field">
+          <input id="password"
+                 type="password"
+                 formControlName="password"
+                 aria-describedby="password-help password-help1"
+                 class="login__input"
+                 [ngClass]="{ 'ng-invalid': submitted && f.password.errors }"
+                 pInputText
+                 placeholder="Password">
+          <div *ngIf="submitted && f.password.errors" class="error">
+            <small id="password-help" class="p-error" *ngIf="f.password.errors.required">Password is required.</small>
+            <small id="password-help1" class="p-error" *ngIf="f.password.errors.minlength">Password must be at least 2 characters.</small>
+          </div>
+        </div>
+
+        <button class="button login__submit">
+          <span class="button__text">LOG IN</span>
+        </button>
+      </form>
+
+      <div class="social-login">
+        <a href="login" class="register">Login</a>
+      </div>
+    </div>
+    <div class="screen__background">
+      <span class="screen__background__shape screen__background__shape4"></span>
+      <span class="screen__background__shape screen__background__shape3"></span>
+      <span class="screen__background__shape screen__background__shape2"></span>
+      <span class="screen__background__shape screen__background__shape1"></span>
+    </div>
+  </div>
+</div>
