@@ -22,7 +22,7 @@ body {
 .screen {
   background: linear-gradient(90deg, #5D54A4, #7C78B8);
   position: relative;
-  height: 600px;
+  height: 1325px;
   width: 360px;
   box-shadow: 0px 0px 24px #5C5696;
 }
@@ -50,11 +50,11 @@ body {
 }
 
 .screen__background__shape1 {
-  height: 520px;
-  width: 520px;
+  height: 1685px;
+  width: 725px;
   background: #FFF;
-  top: -50px;
-  right: 120px;
+  top: -20px;
+  right: 162px;
   border-radius: 0 72px 0 0;
 }
 
@@ -77,10 +77,10 @@ body {
 }
 
 .screen__background__shape4 {
-  height: 400px;
+  height: 650px;
   width: 200px;
   background: #7E7BB9;
-  top: 420px;
+  top: 675px;
   right: 50px;
   border-radius: 60px;
 }
@@ -201,4 +201,12 @@ body {
 
 .social-login__icon:hover {
   transform: scale(1.5);
+}
+
+:host ::ng-deep .p-dropdown {
+  width: 14rem;
+}
+
+.country-item-value img.flag {
+  width: 17px;
 }

@@ -6,8 +6,8 @@ import { AppComponent } from './app.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 
-import {AccordionModule} from 'primeng/accordion';     //accordion and accordion tab
-import {MenuItem} from 'primeng/api';                  //api
+import {AccordionModule} from 'primeng/accordion';     // accordion and accordion tab
+import {MenuItem} from 'primeng/api';                  // api
 
 import {InputTextModule} from 'primeng/inputtext';
 import {CheckboxModule} from 'primeng/checkbox';
@@ -33,8 +33,9 @@ import { LoginComponent } from './public/login/login.component';
 import { RegisterComponent } from './public/register/register.component';
 import { DashboardComponent } from './public/dashboard/dashboard.component';
 import { HomeComponent } from './public/home/home.component';
-import {NotifierModule} from "angular-notifier";
-import {AvatarModule} from "primeng/avatar";
+import {NotifierModule} from 'angular-notifier';
+import {AvatarModule} from 'primeng/avatar';
+import {DropdownModule} from 'primeng/dropdown';
 
 const isIE = window.navigator.userAgent.indexOf('MSIE ') > -1 || window.navigator.userAgent.indexOf('Trident/') > -1;
 
@@ -59,7 +60,7 @@ export function MSALGuardConfigFactory(): MsalGuardConfiguration {
     authRequest: {
       scopes: ['user.read']
     },
-    loginFailedRoute: ""
+    loginFailedRoute: ''
   };
 }
 
@@ -102,7 +103,8 @@ export function MSALInterceptorConfigFactory(): MsalInterceptorConfiguration {
         CarouselModule,
         TabMenuModule,
         MsalModule,
-        AvatarModule
+        AvatarModule,
+        DropdownModule
     ],
   providers: [
     {
