@@ -36,6 +36,9 @@ import { HomeComponent } from './public/home/home.component';
 import {NotifierModule} from 'angular-notifier';
 import {AvatarModule} from 'primeng/avatar';
 import {DropdownModule} from 'primeng/dropdown';
+import {MegaMenuModule} from "primeng/megamenu";
+import {MenubarModule} from "primeng/menubar";
+import {MenuModule} from "primeng/menu";
 
 const isIE = window.navigator.userAgent.indexOf('MSIE ') > -1 || window.navigator.userAgent.indexOf('Trident/') > -1;
 
@@ -86,26 +89,29 @@ export function MSALInterceptorConfigFactory(): MsalInterceptorConfiguration {
     DashboardComponent,
     HomeComponent
   ],
-    imports: [
-        BrowserModule,
-        AppRoutingModule,
-        InputTextModule,
-        ButtonModule,
-        CheckboxModule,
-        RadioButtonModule,
-        RippleModule,
-        TabViewModule,
-        FormsModule,
-        ReactiveFormsModule,
-        NotifierModule,
-        BrowserAnimationsModule,
-        HttpClientModule,
-        CarouselModule,
-        TabMenuModule,
-        MsalModule,
-        AvatarModule,
-        DropdownModule
-    ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    InputTextModule,
+    ButtonModule,
+    CheckboxModule,
+    RadioButtonModule,
+    RippleModule,
+    TabViewModule,
+    FormsModule,
+    ReactiveFormsModule,
+    NotifierModule,
+    BrowserAnimationsModule,
+    HttpClientModule,
+    CarouselModule,
+    TabMenuModule,
+    MsalModule,
+    AvatarModule,
+    DropdownModule,
+    MegaMenuModule,
+    MenubarModule,
+    MenuModule
+  ],
   providers: [
     {
       provide: HTTP_INTERCEPTORS,

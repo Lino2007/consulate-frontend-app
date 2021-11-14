@@ -12,7 +12,7 @@ import { filter, takeUntil } from 'rxjs/operators';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'NSI.UI.ECHO';
+  title = 'NSI.UI';
   menuItems = [];
   private readonly _destroying$ = new Subject<void>();
 

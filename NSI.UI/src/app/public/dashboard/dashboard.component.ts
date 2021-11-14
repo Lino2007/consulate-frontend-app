@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {MenuItem} from 'primeng/api';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-dashboard',
@@ -7,9 +9,29 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DashboardComponent implements OnInit {
 
-  constructor() { }
+  items: MenuItem[];
+  verticalMenu: MenuItem[];
+
+  activeItem: MenuItem;
+
+  constructor(
+    private router: Router) { }
 
   ngOnInit(): void {
+    this.items = [
+      {label: 'Home', icon: 'pi pi-fw pi-home', routerLink: '/home'},
+      {label: 'About', icon: 'pi pi-fw pi-file'},
+      {label: 'Contact', icon: 'pi pi-fw pi-pencil'},
+    ];
+
+    this.verticalMenu = [
+      {label: 'Profile information', icon: 'pi pi-fw pi-user'},
+    ];
+
+    this.activeItem = this.items[0];
   }
 
+  logout(): void {
+    this.router.navigate(['/home']);
+  }
 }
