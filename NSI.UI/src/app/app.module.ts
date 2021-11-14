@@ -39,6 +39,9 @@ import {DropdownModule} from 'primeng/dropdown';
 import {MegaMenuModule} from "primeng/megamenu";
 import {MenubarModule} from "primeng/menubar";
 import {MenuModule} from "primeng/menu";
+import { ProfileComponent } from './public/profile/profile.component';
+import { AboutComponent } from './public/about/about.component';
+import { ContactComponent } from './public/contact/contact.component';
 
 const isIE = window.navigator.userAgent.indexOf('MSIE ') > -1 || window.navigator.userAgent.indexOf('Trident/') > -1;
 
@@ -87,7 +90,10 @@ export function MSALInterceptorConfigFactory(): MsalInterceptorConfiguration {
     LoginComponent,
     RegisterComponent,
     DashboardComponent,
-    HomeComponent
+    HomeComponent,
+    ProfileComponent,
+    AboutComponent,
+    ContactComponent
   ],
   imports: [
     BrowserModule,

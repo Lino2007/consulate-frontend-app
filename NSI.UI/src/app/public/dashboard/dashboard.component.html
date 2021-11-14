@@ -3,7 +3,7 @@
     <img src="assets/images/logo.png" height="40" class="p-mr-2 logo">
   </ng-template>
   <ng-template pTemplate="end">
-    <div class="right-elements">
+    <div class="elements">
       <p class="m-auto mr-3">ADMIN</p>
       <span class="pi pi-fw pi-bell m-auto mr-3"></span>
       <p class="m-auto mr-3 logout" (click)="logout()">LOG OUT</p>
@@ -11,4 +11,9 @@
   </ng-template>
 </p-menubar>
 
-<p-megaMenu [model]="verticalMenu" orientation="vertical"></p-megaMenu>
+<div class="elements">
+  <p-megaMenu [model]="verticalMenu" orientation="vertical"></p-megaMenu>
+
+  <p>test</p>
+</div>
+

@@ -20,12 +20,12 @@ export class DashboardComponent implements OnInit {
   ngOnInit(): void {
     this.items = [
       {label: 'Home', icon: 'pi pi-fw pi-home', routerLink: '/home'},
-      {label: 'About', icon: 'pi pi-fw pi-file'},
-      {label: 'Contact', icon: 'pi pi-fw pi-pencil'},
+      {label: 'About', icon: 'pi pi-fw pi-file', routerLink: '/about'},
+      {label: 'Contact', icon: 'pi pi-fw pi-pencil', routerLink: '/contact'},
     ];
 
     this.verticalMenu = [
-      {label: 'Profile information', icon: 'pi pi-fw pi-user'},
+      {label: 'Profile information', icon: 'pi pi-fw pi-user', routerLink: '/profile'},
     ];
 
     this.activeItem = this.items[0];
