@@ -3,11 +3,11 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 
-import {AccordionModule} from 'primeng/accordion';     //accordion and accordion tab
-import {MenuItem} from 'primeng/api';                  //api
+import {AccordionModule} from 'primeng/accordion';     // accordion and accordion tab
+import {MenuItem} from 'primeng/api';                  // api
 
 import {InputTextModule} from 'primeng/inputtext';
 import {CheckboxModule} from 'primeng/checkbox';
@@ -29,6 +29,19 @@ import {TabMenuModule} from 'primeng/tabmenu';
 import { MsalInterceptor, MsalRedirectComponent, MSAL_GUARD_CONFIG, MSAL_INTERCEPTOR_CONFIG, MsalModule, MsalService, MSAL_INSTANCE, MsalInterceptorConfiguration, MsalGuardConfiguration, MsalGuard } from '@azure/msal-angular';
 import { BrowserCacheLocation, Configuration, InteractionType, IPublicClientApplication, PublicClientApplication } from '@azure/msal-browser';
 import { environment } from 'src/environments/environment';
+import { LoginComponent } from './public/login/login.component';
+import { RegisterComponent } from './public/register/register.component';
+import { DashboardComponent } from './public/dashboard/dashboard.component';
+import { HomeComponent } from './public/home/home.component';
+import {NotifierModule} from 'angular-notifier';
+import {AvatarModule} from 'primeng/avatar';
+import {DropdownModule} from 'primeng/dropdown';
+import {MegaMenuModule} from "primeng/megamenu";
+import {MenubarModule} from "primeng/menubar";
+import {MenuModule} from "primeng/menu";
+import { ProfileComponent } from './public/profile/profile.component';
+import { AboutComponent } from './public/about/about.component';
+import { ContactComponent } from './public/contact/contact.component';
 
 const isIE = window.navigator.userAgent.indexOf('MSIE ') > -1 || window.navigator.userAgent.indexOf('Trident/') > -1;
 
@@ -48,12 +61,12 @@ export function MSALInstanceFactory(): IPublicClientApplication {
 }
 
 export function MSALGuardConfigFactory(): MsalGuardConfiguration {
-  return { 
+  return {
     interactionType: InteractionType.Redirect,
     authRequest: {
       scopes: ['user.read']
     },
-    loginFailedRoute: ""
+    loginFailedRoute: ''
   };
 }
 
@@ -73,7 +86,14 @@ export function MSALInterceptorConfigFactory(): MsalInterceptorConfiguration {
   declarations: [
     AppComponent,
     NewsListComponent,
-    NewsItemComponent
+    NewsItemComponent,
+    LoginComponent,
+    RegisterComponent,
+    DashboardComponent,
+    HomeComponent,
+    ProfileComponent,
+    AboutComponent,
+    ContactComponent
   ],
   imports: [
     BrowserModule,
@@ -85,11 +105,18 @@ export function MSALInterceptorConfigFactory(): MsalInterceptorConfiguration {
     RippleModule,
     TabViewModule,
     FormsModule,
+    ReactiveFormsModule,
+    NotifierModule,
     BrowserAnimationsModule,
     HttpClientModule,
     CarouselModule,
     TabMenuModule,
-    MsalModule
+    MsalModule,
+    AvatarModule,
+    DropdownModule,
+    MegaMenuModule,
+    MenubarModule,
+    MenuModule
   ],
   providers: [
     {

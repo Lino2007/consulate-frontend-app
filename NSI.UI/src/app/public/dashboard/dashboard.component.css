@@ -1,0 +1,24 @@
+:host ::ng-deep .p-menubar .p-menubar-root-list > .p-menuitem > .p-menuitem-link:focus {
+  box-shadow: none !important;
+}
+
+.logo {
+  border-radius: 50%;
+}
+
+.elements {
+  display: inline-flex;
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.logout {
+  cursor: pointer;
+}
+
+:host ::ng-deep .p-megamenu.p-megamenu-vertical {
+  height: 92vh;
+}
+
+:host ::ng-deep .p-megamenu .p-megamenu-root-list > .p-menuitem > .p-menuitem-link:focus{
+  box-shadow: none !important;
+}

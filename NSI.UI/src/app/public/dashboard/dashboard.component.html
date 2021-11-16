@@ -1,0 +1,19 @@
+<p-menubar [model]="items">
+  <ng-template pTemplate="start">
+    <img src="assets/images/logo.png" height="40" class="p-mr-2 logo">
+  </ng-template>
+  <ng-template pTemplate="end">
+    <div class="elements">
+      <p class="m-auto mr-3">ADMIN</p>
+      <span class="pi pi-fw pi-bell m-auto mr-3"></span>
+      <p class="m-auto mr-3 logout" (click)="logout()">LOG OUT</p>
+    </div>
+  </ng-template>
+</p-menubar>
+
+<div class="elements">
+  <p-megaMenu [model]="verticalMenu" orientation="vertical"></p-megaMenu>
+
+  <p>test</p>
+</div>
+
