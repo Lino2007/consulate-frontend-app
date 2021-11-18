@@ -1,1 +1,115 @@
-<p>home works!</p>
+<p-menubar [model]="items">
+  <ng-template pTemplate="start">
+    <img src="assets/images/logo.png" height="40" class="p-mr-2 logo">
+    <a class="m-auto mr-3 logoTitle" href="/home">BiH Konzulat</a>
+  </ng-template>
+  <ng-template pTemplate="end">
+    <div class="menuElements">
+      <a class="m-auto mr-3 menuElement" href="/dashboard">DASHBOARD</a>
+      <a class="m-auto mr-3 menuElement" href="/about">ABOUT</a>
+      <a class="m-auto mr-3 menuElement" (click)="logout()">LOGOUT</a>
+    </div>
+  </ng-template>
+</p-menubar>
+
+<p-galleria [(value)]="images" [responsiveOptions]="responsiveOptions" [numVisible]="5"
+            [circular]="true" [autoPlay]="true" [transitionInterval]="4500">
+  <ng-template pTemplate="item" let-item>
+    <img [src]="item.source" style="width: 100%; display: block;" />
+  </ng-template>
+</p-galleria>
+
+<div class="titleDiv">
+  <h1 class="title">Generalni Konzulat Bosne i Hercegovine</h1>
+</div>
+
+<div class="cards">
+  <p-card header="Pasoš" class="card">
+    <ng-template pTemplate="header">
+      <img alt="Card" src="assets/images/passport.JPG">
+    </ng-template>
+    <p>Generalni konzulat Bosne i Hecegovine u Frankfurtu izdaje pasoše državljanima Bosne i Hercegovine koji borave u inostranstvu duže od tri mjeseca i onima koji borave kraće od tri mjeseca ukoliko je pasoš uništen, oštećen, ukraden ili izgubljen.
+      Pasoš Bosne i Hercegovine je isprava na osnovu koje se utvrđuje identitet i državljanstvo nosioca. Izdaje se s rokom važenja od 10 godina, za djecu koja nisu navršila 3 godine starosti s rokom važenja do 3 godine, državljanima BiH od 3 do 18 godina starosti s rokom važenja od 5 godina.
+    </p>
+  </p-card>
+
+  <p-card header="Viza" class="card">
+    <ng-template pTemplate="header">
+      <img alt="Card" src="assets/images/visa.jpg">
+    </ng-template>
+    <p>Državljani BiH za putovanje u zemlje članice EU i zemlje potpisnice Šengenskog sporazuma pored biometrijskog pasoša trebaju posjedovati novac u iznosu 35-70 eura za svaki dan boravka u zemljama EU. Granične službe mogu zahtijevati dokaz o posjedovanju novčanih sredstava za boravak u određenoj zemlji ili informaciju o adresi na kojoj ćete odsjest.
+    </p>
+  </p-card>
+</div>
+
+<div class="mapouter">
+  <div class="gmap_canvas">
+    <iframe class="iframe" width="400" height="300" id="gmap_canvas" src="https://maps.google.com/maps?q=etf,%20sarajevo&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0">
+
+    </iframe>
+    <a href="https://123movies-org.net">123movies</a>
+    <br>
+    <style>.mapouter{position:relative;text-align:right;height:300px;width:400px;}</style>
+    <a href="https://www.embedgooglemap.net"></a>
+    <style>.gmap_canvas {overflow:hidden;background:none!important;height:300px;width:400px;}</style>
+  </div>
+</div>
+
+<div class="footer">
+  <div class="footerElement">
+    <p>RADNO VRIJEME
+      <br/>
+      <br/>
+      Generalni Konzulat:
+      <br/>
+      Od ponedjeljka do petka
+      od 09:00 do 17:00 sati.
+      <br/><br/>
+      Rad sa strankama:
+      <br/>
+      Svaki radni dan od 09:00 do 14:00 sati.
+      <br/><br/>
+      Pružanje konzularnih informacija:
+      <br/>
+      Svaki radni dan od 14:00 do 15:00 sati.
+      <br/><br/>
+      Termini se ne zakazuju.</p>
+  </div>
+  <div class="footerElement">
+    <p>
+      KONTAKT
+      <br/><br/>
+      Telefon:
+      <br/>
+      +49 69 907 486 40
+      <br/><br/>
+      Fax:
+      <br/>
+      +49 69 907 486 427
+      <br/><br/>
+      Informacije o pasošima:
+      <br/>
+      +49 69 907 486 43
+      <br/><br/>
+      Informacije o državljanstvu:
+      <br/>
+      +49 69 907 486 45
+      <br/><br/>
+      E-mail adresa:
+      <br/>
+      konzulat@bih.ba
+    </p>
+
+  </div>
+  <div class="footerElement">
+    <p>
+      ADRESA
+      <br/><br/>
+      Generalni Konzulat Bosne i Hercegovine
+      <br/><br/>
+      Konzulat 12
+      <br/>
+      12345 Adresa
+    </p>
+  </div>
+</div>

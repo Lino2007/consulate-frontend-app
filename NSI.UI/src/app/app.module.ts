@@ -36,12 +36,14 @@ import { HomeComponent } from './public/home/home.component';
 import {NotifierModule} from 'angular-notifier';
 import {AvatarModule} from 'primeng/avatar';
 import {DropdownModule} from 'primeng/dropdown';
-import {MegaMenuModule} from "primeng/megamenu";
-import {MenubarModule} from "primeng/menubar";
-import {MenuModule} from "primeng/menu";
+import {MegaMenuModule} from 'primeng/megamenu';
+import {MenubarModule} from 'primeng/menubar';
+import {MenuModule} from 'primeng/menu';
 import { ProfileComponent } from './public/profile/profile.component';
 import { AboutComponent } from './public/about/about.component';
 import { ContactComponent } from './public/contact/contact.component';
+import {GalleriaModule} from 'primeng/galleria';
+import {CardModule} from 'primeng/card';
 
 const isIE = window.navigator.userAgent.indexOf('MSIE ') > -1 || window.navigator.userAgent.indexOf('Trident/') > -1;
 
@@ -95,29 +97,31 @@ export function MSALInterceptorConfigFactory(): MsalInterceptorConfiguration {
     AboutComponent,
     ContactComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    InputTextModule,
-    ButtonModule,
-    CheckboxModule,
-    RadioButtonModule,
-    RippleModule,
-    TabViewModule,
-    FormsModule,
-    ReactiveFormsModule,
-    NotifierModule,
-    BrowserAnimationsModule,
-    HttpClientModule,
-    CarouselModule,
-    TabMenuModule,
-    MsalModule,
-    AvatarModule,
-    DropdownModule,
-    MegaMenuModule,
-    MenubarModule,
-    MenuModule
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        InputTextModule,
+        ButtonModule,
+        CheckboxModule,
+        RadioButtonModule,
+        RippleModule,
+        TabViewModule,
+        FormsModule,
+        ReactiveFormsModule,
+        NotifierModule,
+        BrowserAnimationsModule,
+        HttpClientModule,
+        CarouselModule,
+        TabMenuModule,
+        MsalModule,
+        AvatarModule,
+        DropdownModule,
+        MegaMenuModule,
+        MenubarModule,
+        MenuModule,
+        GalleriaModule,
+        CardModule,
+    ],
   providers: [
     {
       provide: HTTP_INTERCEPTORS,

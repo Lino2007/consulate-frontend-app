@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Inject, OnInit} from '@angular/core';
 import {MenuItem} from 'primeng/api';
 import {Router} from '@angular/router';
+import {MSAL_GUARD_CONFIG, MsalBroadcastService, MsalGuardConfiguration, MsalService} from '@azure/msal-angular';
 
 @Component({
   selector: 'app-dashboard',
@@ -14,8 +15,11 @@ export class DashboardComponent implements OnInit {
 
   activeItem: MenuItem;
 
-  constructor(
-    private router: Router) { }
+  constructor(private router: Router,
+              @Inject(MSAL_GUARD_CONFIG) private msalGuardConfig: MsalGuardConfiguration,
+              private broadcastService: MsalBroadcastService,
+              private authService: MsalService) {
+            }
 
   ngOnInit(): void {
     this.items = [
@@ -32,6 +36,8 @@ export class DashboardComponent implements OnInit {
   }
 
   logout(): void {
-    this.router.navigate(['/home']);
+    this.authService.logoutRedirect({
+      postLogoutRedirectUri: 'http://localhost:4200'
+    });
   }
 }
