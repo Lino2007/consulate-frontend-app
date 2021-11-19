@@ -11,13 +11,13 @@ import {AboutComponent} from './public/about/about.component';
 import {ContactComponent} from './public/contact/contact.component';
 
 const routes: Routes = [
-  { path: '', component: HomeComponent, pathMatch: 'full', canActivate: [MsalGuard] },
+  { path: '', component: HomeComponent, pathMatch: 'full' },
   { path: 'login', component: LoginComponent, pathMatch: 'full'},
   { path: 'register', component: RegisterComponent, pathMatch: 'full'},
   { path: 'home', component: HomeComponent, pathMatch: 'full'},
   { path: 'dashboard', component: DashboardComponent, pathMatch: 'full',  canActivate: [MsalGuard]},
   { path: 'profile', component: ProfileComponent, pathMatch: 'full',  canActivate: [MsalGuard]},
-  { path: 'about', component: AboutComponent, pathMatch: 'full',  canActivate: [MsalGuard]},
+  { path: 'about', component: AboutComponent, pathMatch: 'full'},
   { path: 'contact', component: ContactComponent, pathMatch: 'full',  canActivate: [MsalGuard]},
 
 ];

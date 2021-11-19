@@ -44,6 +44,8 @@ import { AboutComponent } from './public/about/about.component';
 import { ContactComponent } from './public/contact/contact.component';
 import {GalleriaModule} from 'primeng/galleria';
 import {CardModule} from 'primeng/card';
+import { HomeMenuComponent } from './public/home-menu/home-menu.component';
+import { FooterComponent } from './public/footer/footer.component';
 
 const isIE = window.navigator.userAgent.indexOf('MSIE ') > -1 || window.navigator.userAgent.indexOf('Trident/') > -1;
 
@@ -95,7 +97,9 @@ export function MSALInterceptorConfigFactory(): MsalInterceptorConfiguration {
     HomeComponent,
     ProfileComponent,
     AboutComponent,
-    ContactComponent
+    ContactComponent,
+    HomeMenuComponent,
+    FooterComponent
   ],
     imports: [
         BrowserModule,
