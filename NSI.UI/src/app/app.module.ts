@@ -48,6 +48,12 @@ import { HomeMenuComponent } from './public/home-menu/home-menu.component';
 import { FooterComponent } from './public/footer/footer.component';
 import { DashboardHorizontalMenuComponent } from './public/dashboard-horizontal-menu/dashboard-horizontal-menu.component';
 import { DashboardVerticalMenuComponent } from './public/dashboard-vertical-menu/dashboard-vertical-menu.component';
+import { PasswordChangeComponent } from './public/password-change/password-change.component';
+import { DocumentRequestsComponent } from './public/document-requests/document-requests.component';
+import { DocumentListComponent } from './public/document-list/document-list.component';
+import { RolesListComponent } from './public/roles-list/roles-list.component';
+import { PermissionsListComponent } from './public/permissions-list/permissions-list.component';
+import { ConsulsListComponent } from './public/consuls-list/consuls-list.component';
 
 const isIE = window.navigator.userAgent.indexOf('MSIE ') > -1 || window.navigator.userAgent.indexOf('Trident/') > -1;
 
@@ -103,7 +109,13 @@ export function MSALInterceptorConfigFactory(): MsalInterceptorConfiguration {
     HomeMenuComponent,
     FooterComponent,
     DashboardHorizontalMenuComponent,
-    DashboardVerticalMenuComponent
+    DashboardVerticalMenuComponent,
+    PasswordChangeComponent,
+    DocumentRequestsComponent,
+    DocumentListComponent,
+    RolesListComponent,
+    PermissionsListComponent,
+    ConsulsListComponent
   ],
     imports: [
         BrowserModule,
