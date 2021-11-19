@@ -1,6 +1,7 @@
 :host ::ng-deep .p-menubar {
   background: #7a71ff;
   color: #FFF;
+  height: 72px;
 }
 
 .logo {
@@ -18,7 +19,6 @@
   display: none;
 }
 
-
 .menuElements {
   display: inline-flex;
 }
@@ -28,4 +28,8 @@
   color: #FFF;
   font-size: 15px;
   cursor: pointer;
+}
+
+.menuElement:hover {
+  color: #222222;
 }

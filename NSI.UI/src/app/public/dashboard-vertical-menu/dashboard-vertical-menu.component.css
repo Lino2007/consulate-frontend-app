@@ -1,0 +1,7 @@
+:host ::ng-deep .p-megamenu.p-megamenu-vertical {
+  height: 92vh;
+}
+
+:host ::ng-deep .p-megamenu .p-megamenu-root-list > .p-menuitem > .p-menuitem-link:focus{
+  box-shadow: none !important;
+}

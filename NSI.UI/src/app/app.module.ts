@@ -46,6 +46,8 @@ import {GalleriaModule} from 'primeng/galleria';
 import {CardModule} from 'primeng/card';
 import { HomeMenuComponent } from './public/home-menu/home-menu.component';
 import { FooterComponent } from './public/footer/footer.component';
+import { DashboardHorizontalMenuComponent } from './public/dashboard-horizontal-menu/dashboard-horizontal-menu.component';
+import { DashboardVerticalMenuComponent } from './public/dashboard-vertical-menu/dashboard-vertical-menu.component';
 
 const isIE = window.navigator.userAgent.indexOf('MSIE ') > -1 || window.navigator.userAgent.indexOf('Trident/') > -1;
 
@@ -99,7 +101,9 @@ export function MSALInterceptorConfigFactory(): MsalInterceptorConfiguration {
     AboutComponent,
     ContactComponent,
     HomeMenuComponent,
-    FooterComponent
+    FooterComponent,
+    DashboardHorizontalMenuComponent,
+    DashboardVerticalMenuComponent
   ],
     imports: [
         BrowserModule,
