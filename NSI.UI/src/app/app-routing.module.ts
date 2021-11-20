@@ -9,17 +9,28 @@ import {DashboardComponent} from './public/dashboard/dashboard.component';
 import {ProfileComponent} from './public/profile/profile.component';
 import {AboutComponent} from './public/about/about.component';
 import {ContactComponent} from './public/contact/contact.component';
+import {PasswordChangeComponent} from './public/password-change/password-change.component';
+import {DocumentListComponent} from './public/document-list/document-list.component';
+import {DocumentRequestsComponent} from './public/document-requests/document-requests.component';
+import {ConsulsListComponent} from './public/consuls-list/consuls-list.component';
+import {RolesListComponent} from './public/roles-list/roles-list.component';
+import {PermissionsListComponent} from './public/permissions-list/permissions-list.component';
 
 const routes: Routes = [
-  { path: '', component: HomeComponent, pathMatch: 'full', canActivate: [MsalGuard] },
+  { path: '', component: HomeComponent, pathMatch: 'full' },
   { path: 'login', component: LoginComponent, pathMatch: 'full'},
   { path: 'register', component: RegisterComponent, pathMatch: 'full'},
   { path: 'home', component: HomeComponent, pathMatch: 'full'},
   { path: 'dashboard', component: DashboardComponent, pathMatch: 'full',  canActivate: [MsalGuard]},
   { path: 'profile', component: ProfileComponent, pathMatch: 'full',  canActivate: [MsalGuard]},
-  { path: 'about', component: AboutComponent, pathMatch: 'full',  canActivate: [MsalGuard]},
+  { path: 'about', component: AboutComponent, pathMatch: 'full'},
   { path: 'contact', component: ContactComponent, pathMatch: 'full',  canActivate: [MsalGuard]},
-
+  { path: 'change-password', component: PasswordChangeComponent, pathMatch: 'full',  canActivate: [MsalGuard]},
+  { path: 'document-request', component: DocumentRequestsComponent, pathMatch: 'full',  canActivate: [MsalGuard]},
+  { path: 'documents', component: DocumentListComponent, pathMatch: 'full',  canActivate: [MsalGuard]},
+  { path: 'consuls', component: ConsulsListComponent, pathMatch: 'full',  canActivate: [MsalGuard]},
+  { path: 'roles', component: RolesListComponent, pathMatch: 'full',  canActivate: [MsalGuard]},
+  { path: 'permissions', component: PermissionsListComponent, pathMatch: 'full',  canActivate: [MsalGuard]},
 ];
 
 @NgModule({

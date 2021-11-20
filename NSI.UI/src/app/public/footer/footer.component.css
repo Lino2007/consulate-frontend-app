@@ -1,0 +1,13 @@
+
+.footer {
+  display: inline-flex;
+  background: #7a71ff;
+  color: #FFF;
+  width: 100%;
+}
+
+.footerElement {
+  flex: 30%;
+  margin: 25px 20px 0;
+  text-align: center;
+}

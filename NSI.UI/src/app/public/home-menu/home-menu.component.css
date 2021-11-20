@@ -1,0 +1,35 @@
+:host ::ng-deep .p-menubar {
+  background: #7a71ff;
+  color: #FFF;
+  height: 72px;
+}
+
+.logo {
+  margin-top: -10px;
+  margin-right: 10px;
+}
+
+.logoTitle {
+  color: #FFF;
+  font-size: 24px;
+  text-decoration: none;
+}
+
+:host ::ng-deep .p-menubar-button {
+  display: none;
+}
+
+.menuElements {
+  display: inline-flex;
+}
+
+.menuElement {
+  text-decoration: none;
+  color: #FFF;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.menuElement:hover {
+  color: #222222;
+}

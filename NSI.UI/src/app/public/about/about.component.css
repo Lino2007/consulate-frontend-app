@@ -1,34 +1,3 @@
-:host ::ng-deep .p-menubar {
-  background: #7a71ff;
-  color: #FFF;
-}
-
-.logo {
-  margin-top: -18px;
-  margin-right: 10px;
-}
-
-.logoTitle {
-  color: #FFF;
-  font-size: 24px;
-  text-decoration: none;
-}
-
-:host ::ng-deep .p-menubar-button {
-  display: none;
-}
-
-.menuElements {
-  display: inline-flex;
-}
-
-.menuElement {
-  text-decoration: none;
-  color: #FFF;
-  font-size: 15px;
-  cursor: pointer;
-}
-
 .title {
   padding: 10px 15px;
 }
@@ -48,28 +17,7 @@
   width: 100%;
 }
 
-.footer {
-  display: inline-flex;
-  background: #7a71ff;
-  color: #FFF;
-  width: 100%;
-}
-
-.footerElement {
-  flex: 30%;
-  margin: 25px 20px 0;
-  text-align: center;
-}
-
 @media (min-width: 900px) {
-  .logoTitle {
-    font-size: 40px;
-  }
-
-  .menuElement {
-    font-size: 23px;
-  }
-
   .content {
     display: inline-flex;
   }
