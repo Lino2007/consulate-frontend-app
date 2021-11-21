@@ -1,0 +1,51 @@
+<app-dashboard-horizontal-menu></app-dashboard-horizontal-menu>
+
+<div class="elements">
+  <div class="row">
+    <div class="col-sm-3 vertical">
+      <app-dashboard-vertical-menu></app-dashboard-vertical-menu>
+    </div>
+    <div class="col-sm-7 p-5 py-10 forma">
+
+      <div class="d-flex justify-content-center align-items-center mb-3">
+        <h4 class="text-right">Welcome, {{ firstName }}</h4>
+      </div>
+      <div class="row mt-2 tablet">
+        <div class="col-sm-6">
+          <label class="labels">Name</label>
+          <input type="text" class="form-control" placeholder="First name" value="{{ firstName }}" readonly>
+        </div>
+        <div class="col-sm-6"><label class="labels">Surname</label><input type="text" class="form-control" value="{{ surname }}"
+            placeholder="Surname" readonly></div>
+      </div>
+      <div class="row mt-2 tablet">
+        <div class="col-sm-6">
+          <label class="labels">Gender</label>
+          <input type="text" class="form-control" placeholder="Gender" value="{{ gender }}" readonly></div>
+        <div class="col-sm-6">
+          <label class="labels">Date of Birth</label>
+          <input type="date" class="form-control" value="{{dateOfBirth | date:'yyyy-MM-dd' }}" placeholder="dd/mm/yyyy" readonly></div>
+      </div>
+      <div class="row mt-2 tablet">
+        <div class="col-sm-12"><label class="labels">Place of birth</label><input type="text" class="form-control"
+            placeholder="Place of birth" value="{{ placeOfBirth }}" readonly></div>
+        <div class="mt-2 col-sm-12"><label class="labels">Country you were born in</label><input type="text"
+            class="form-control" placeholder="Country" value="{{ country }}" readonly></div>
+      </div>
+      <div class="row mt-2 tablet">
+        <div class="offset-6 col-sm-6"><label class="labels">Username</label><input type="text" class="form-control"
+            placeholder="Username" value="{{ username }}" readonly></div>
+      </div>
+      <div class="row mt-2 tablet">
+        <div class="offset-6 col-sm-6"><label class="labels">E-mail</label><input type="email" class="form-control" value="{{ email }}"
+            placeholder="E-mail" readonly></div>
+      </div>
+      <div class="mt-5 text-right">
+        <button class="btn btn-primary profile-button" type="button" (click)="changePassword()" >Change password</button>
+        </div>
+
+
+    </div>
+    
+  </div>
+</div>

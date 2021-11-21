@@ -1,0 +1,53 @@
+<app-home-menu></app-home-menu>
+
+<p-galleria [(value)]="images" [responsiveOptions]="responsiveOptions" [numVisible]="5"
+            [circular]="true" [autoPlay]="true" [transitionInterval]="4500">
+  <ng-template pTemplate="item" let-item>
+    <img [src]="item.source" style="width: 100%; display: block;" />
+  </ng-template>
+</p-galleria>
+
+<div class="titleDiv">
+  <h1 class="title">CONSULATE GENERAL</h1>
+  <br>
+  <br>
+  <h1 class="title">OF</h1>
+  <br>
+  <br>
+  <h1 class="title">BOSNIA AND HERZEGOVINA</h1>
+</div>
+
+<div class="cards">
+  <p-card header="Passport" class="card">
+    <ng-template pTemplate="header">
+      <img alt="Card" src="assets/images/passport.JPG">
+    </ng-template>
+    <p>
+      The Consulate General of Bosnia and Herzegovina in Frankfurt issues passports to citizens of Bosnia and Herzegovina who stay abroad for more than three months and to those who stay less than three months if the passport is destroyed, damaged, stolen or lost. The passport of Bosnia and Herzegovina is a document on the basis of which the identity and citizenship of the holder is determined. It is issued with a validity period of 10 years, for children under 3 years of age with a validity period of up to 3 years, for BiH citizens from 3 to 18 years of age with a validity period of 5 years.
+    </p>
+  </p-card>
+
+  <p-card header="Visa" class="card">
+    <ng-template pTemplate="header">
+      <img alt="Card" src="assets/images/visa.jpg">
+    </ng-template>
+    <p>
+      In addition to a biometric passport, BiH citizens need to have money in the amount of 35-70 euros for each day of stay in EU countries to travel to EU member states and Schengen countries. Border services may require proof of possession of money to stay in a particular country or information on the address where you will be staying.
+    </p>
+  </p-card>
+</div>
+
+<div class="mapouter">
+  <div class="gmap_canvas">
+    <iframe class="iframe" width="400" height="300" id="gmap_canvas" src="https://maps.google.com/maps?q=etf,%20sarajevo&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0">
+
+    </iframe>
+    <a href="https://123movies-org.net">123movies</a>
+    <br>
+    <style>.mapouter{position:relative;text-align:right;height:300px;width:400px;}</style>
+    <a href="https://www.embedgooglemap.net"></a>
+    <style>.gmap_canvas {overflow:hidden;background:none!important;height:300px;width:400px;}</style>
+  </div>
+</div>
+
+<app-footer></app-footer>

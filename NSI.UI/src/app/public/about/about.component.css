@@ -1,0 +1,24 @@
+.title {
+  padding: 10px 15px;
+}
+
+.content {
+  display: block;
+  padding: 10px 15px;
+  width: 100%;
+}
+
+.flagImg, .aboutContent{
+  flex: 50%;
+  text-align: center;
+}
+
+.flagImg img {
+  width: 100%;
+}
+
+@media (min-width: 900px) {
+  .content {
+    display: inline-flex;
+  }
+}

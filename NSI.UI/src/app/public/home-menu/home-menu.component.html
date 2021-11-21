@@ -1,0 +1,14 @@
+<p-menubar >
+  <ng-template pTemplate="start">
+    <img src="assets/images/logo.png" height="40" class="p-mr-2 logo">
+    <a class="m-auto mr-3 logoTitle" href="/home">BiH Consulate</a>
+  </ng-template>
+  <ng-template pTemplate="end">
+    <div class="menuElements">
+      <a class="m-auto mr-3 menuElement" href="/dashboard">DASHBOARD</a>
+      <a class="m-auto mr-3 menuElement" href="/about">ABOUT</a>
+      <a class="m-auto mr-3 menuElement" *ngIf="!loginDisplay" (click)="login()">LOGIN</a>
+      <a class="m-auto mr-3 menuElement" *ngIf="loginDisplay" (click)="logout()">LOGOUT</a>
+    </div>
+  </ng-template>
+</p-menubar>
