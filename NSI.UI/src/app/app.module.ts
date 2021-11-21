@@ -4,6 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { RouterModule,Routes } from '@angular/router';
 
 
 import {AccordionModule} from 'primeng/accordion';     // accordion and accordion tab
@@ -54,7 +55,6 @@ import { DocumentListComponent } from './public/document-list/document-list.comp
 import { RolesListComponent } from './public/roles-list/roles-list.component';
 import { PermissionsListComponent } from './public/permissions-list/permissions-list.component';
 import { ConsulsListComponent } from './public/consuls-list/consuls-list.component';
-
 const isIE = window.navigator.userAgent.indexOf('MSIE ') > -1 || window.navigator.userAgent.indexOf('Trident/') > -1;
 
 export function MSALInstanceFactory(): IPublicClientApplication {
