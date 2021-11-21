@@ -13,11 +13,11 @@ pool:
 
 variables:
   ${{ if eq(variables['Build.SourceBranchName'], 'prod') }}:
-    configuration: production
+    buildConfiguration: production
   ${{ if eq(variables['Build.SourceBranchName'], 'main') }}:
-    configuration: development
+    buildConfiguration: development
   ${{ if eq(variables['Build.SourceBranchName'], 'uat') }}:
-    configuration: uat
+    buildConfiguration: uat
 
 steps:
 - task: NodeTool@0
@@ -28,6 +28,6 @@ steps:
 - script: |
     npm install -g @angular/cli
     npm install
-    ng build --configuration=${configuration}
+    ng build --configuration=${buildConfiguration}
   workingDirectory: $(Build.SourcesDirectory)/NSI.UI
   displayName: 'npm install and build'
