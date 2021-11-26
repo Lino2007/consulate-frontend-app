@@ -2,6 +2,72 @@
 
 <div class="elements">
   <app-dashboard-vertical-menu></app-dashboard-vertical-menu>
-  <p>Roles list</p>
+  <div *ngIf="!update">
+    <h1 class="page-title" >Roles</h1>
+    <div class="content" >
+      <p-table class="table" [value]="roles" responsiveLayout="scroll">
+        <ng-template pTemplate="header">
+          <tr>
+            <th>Roles</th>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-roles>
+          <tr>
+            <td (click)="changeRole(roles)">{{roles.name}}</td>
+          </tr>
+        </ng-template>
+      </p-table>
+      <div class="selected-role-area">
+        <label class="labels">Selected role</label>
+        <input type="text" class="selected-role form-control" value="{{ selectedRole.name }}" readonly>
+
+        <label class="labels">Permissions for selected role</label>
+        <p-table class="table" [value]="selectedRolesPermissions" responsiveLayout="scroll">
+          <ng-template pTemplate="body" let-permission>
+            <tr>
+              <td>{{permission.name}}</td>
+            </tr>
+          </ng-template>
+        </p-table>
+        <div class="action-btns">
+          <button class="btn btn-primary" type="button" (click)="deleteRole()" >Delete role</button>
+          <button class="btn btn-primary" type="button" (click)="updateRole()" >Update role</button>
+        </div>
+        <button class="btn btn-primary add-role-btn" type="button" [routerLink]="['/add-role']" >Add new role</button>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="update">
+    <button class="btn btn-primary mt-3 ml-8 w-25" type="button" (click)="cancelUpdate()" >Cancel</button>
+    <h1 class="page-title" >Roles</h1>
+    <div class="update-content">
+      <h1 class="text-center">Update role</h1>
+      <label class="labels ml-5 mb-2">Selected role</label>
+      <input type="text" class="selected-role form-control mb-3" value="{{ selectedRole.name }}" readonly>
+
+      <p-table class="table" [value]="permissions" responsiveLayout="scroll">
+        <ng-template pTemplate="header">
+          <tr>
+            <th>Permissions</th>
+            <th></th>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-permission>
+          <tr>
+            <td>{{permission.name}}</td>
+            <td>
+              <button *ngIf="this.selectedRolesPermissions.indexOf(permission) === -1" class="btn btn-primary add-role-btn" type="button" (click)="addPermission(permission)">Add</button>
+              <button *ngIf="this.selectedRolesPermissions.indexOf(permission) !== -1" class="btn btn-primary add-role-btn" type="button" (click)="deletePermission(permission)" >Delete</button>
+            </td>
+          </tr>
+        </ng-template>
+      </p-table>
+
+      <button class="btn btn-primary add-role-btn mt-4 mb-6 w-25" type="button" (click)="save()" >Save</button>
+
+    </div>
+  </div>
 </div>
+
 

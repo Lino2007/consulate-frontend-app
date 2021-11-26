@@ -2,6 +2,15 @@
 
 <div class="elements">
   <app-dashboard-vertical-menu></app-dashboard-vertical-menu>
-  <p>Permissions list</p>
+  <div>
+    <h1 class="page-title" >Permissions</h1>
+    <p-table [value]="permissions" responsiveLayout="scroll">
+      <ng-template pTemplate="body" let-permissions>
+        <tr>
+          <td>{{permissions.name}}</td>
+        </tr>
+      </ng-template>
+    </p-table>
+  </div>
 </div>
 

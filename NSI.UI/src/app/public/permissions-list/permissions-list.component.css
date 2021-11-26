@@ -2,3 +2,20 @@
   display: inline-flex;
   color: rgba(0, 0, 0, 0.5);
 }
+
+:host ::ng-deep .p-datatable {
+  width: 50%;
+  margin: auto;
+  border: 1px solid #dee2e6;
+}
+
+:host ::ng-deep .p-datatable-thead > tr > th,
+:host ::ng-deep .p-datatable-tbody  > tr > td {
+  text-align: center;
+}
+
+.page-title {
+  text-align: center;
+  margin: 40px 0;
+  font-size: 40px;
+}

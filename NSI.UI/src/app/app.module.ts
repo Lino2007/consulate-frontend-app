@@ -55,6 +55,9 @@ import { DocumentListComponent } from './public/document-list/document-list.comp
 import { RolesListComponent } from './public/roles-list/roles-list.component';
 import { PermissionsListComponent } from './public/permissions-list/permissions-list.component';
 import { ConsulsListComponent } from './public/consuls-list/consuls-list.component';
+import {TableModule} from 'primeng/table';
+import {ListboxModule} from 'primeng/listbox';
+import { AddRoleComponent } from './public/add-role/add-role.component';
 const isIE = window.navigator.userAgent.indexOf('MSIE ') > -1 || window.navigator.userAgent.indexOf('Trident/') > -1;
 
 export function MSALInstanceFactory(): IPublicClientApplication {
@@ -115,7 +118,8 @@ export function MSALInterceptorConfigFactory(): MsalInterceptorConfiguration {
     DocumentListComponent,
     RolesListComponent,
     PermissionsListComponent,
-    ConsulsListComponent
+    ConsulsListComponent,
+    AddRoleComponent
   ],
     imports: [
         BrowserModule,
@@ -141,6 +145,8 @@ export function MSALInterceptorConfigFactory(): MsalInterceptorConfiguration {
         MenuModule,
         GalleriaModule,
         CardModule,
+        TableModule,
+        ListboxModule,
     ],
   providers: [
     {

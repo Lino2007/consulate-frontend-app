@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {PermissionsService} from '../../private/services/permissions.service';
 
 @Component({
   selector: 'app-permissions-list',
@@ -7,9 +8,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PermissionsListComponent implements OnInit {
 
-  constructor() { }
+  permissions: any[];
+
+  constructor(
+    private permissionsService: PermissionsService,
+  ) { }
 
   ngOnInit(): void {
+    this.permissionsService.goBackToLanding.subscribe((num: number) => {
+      this.fetchPermissions();
+    });
+
+    this.fetchPermissions();
   }
 
+  // tslint:disable-next-line:typedef
+  fetchPermissions() {
+    this.permissionsService.getPermissions().subscribe((res: any) => {
+      this.permissions = res.data;
+    });
+  }
 }
