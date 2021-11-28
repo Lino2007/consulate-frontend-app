@@ -1,4 +1,77 @@
 .elements {
   display: inline-flex;
   color: rgba(0, 0, 0, 0.5);
+  width: 100%;
+}
+
+:host ::ng-deep .p-datatable {
+  width: 90%;
+  border: 1px solid #dee2e6;
+  margin: auto;
+}
+
+:host ::ng-deep .p-datatable-thead > tr > th {
+  text-align: center;
+  background: #dee2e6;
+}
+
+:host ::ng-deep .p-datatable-tbody  > tr > td {
+  text-align: center;
+  cursor: pointer;
+}
+
+.table{
+  flex: 50%;
+}
+
+.roles-content {
+  width: 100%;
+}
+
+.page-title {
+  text-align: center;
+  margin: 40px 0;
+  font-size: 40px;
+}
+
+.roles-list {
+  flex: 50%;
+}
+
+.labels {
+  font-size: 15px;
+  margin: 15px 0 5px;
+}
+
+.action-btns {
+  display: inline-flex;
+  width: 100%;
+  justify-content: space-around;
+  margin: 20px 0 ;
+}
+
+.btn {
+  background: #7a71ff;
+  box-shadow: none;
+  border: none
+}
+
+.btn:hover {
+  background: #655dd9
+}
+
+.content {
+  width: 60%;
+  text-align: center;
+  margin: auto;
+}
+
+#inputRoleName {
+  width: 90%;
+  margin: auto;
+}
+
+#labelRoleName {
+  text-align: left;
+  float: left;
 }

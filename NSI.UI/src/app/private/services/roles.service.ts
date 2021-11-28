@@ -15,6 +15,12 @@ export class RolesService {
     return this.http.get(environment.url + '/api/Role');
   }
 
+  public saveRole(roleName: string){
+    return this.http.post(environment.url + '/api/Role', {
+      name: roleName
+    });
+  }
+
   // tslint:disable-next-line:typedef
   public addRolePermission(roleId: string, permissionId: string) {
     return this.http.post(environment.url + '/api/Permission/role', {
