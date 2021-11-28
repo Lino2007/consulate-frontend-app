@@ -19,7 +19,8 @@ export class DashboardVerticalMenuComponent implements OnInit {
       {label: 'Request for a document', icon: 'pi pi-fw pi-copy', routerLink: '/document-request'},
       {label: 'My documents', icon: 'pi pi-fw pi-file-o', routerLink: '/documents'},
       {label: 'Consuls', icon: 'pi pi-fw pi-briefcase', routerLink: '/consuls'},
-      {label: 'Roles', icon: 'pi pi-fw pi-users', routerLink: '/roles'},
+      {label: 'Population', icon: 'pi pi-fw pi-users', routerLink: '/population'},
+      {label: 'Roles', icon: 'pi pi-fw pi-pencil', routerLink: '/roles'},
       {label: 'Permissions', icon: 'pi pi-fw pi-pencil', routerLink: '/permissions'},
     ];
   }

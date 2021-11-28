@@ -15,10 +15,6 @@ export class PermissionsListComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.permissionsService.goBackToLanding.subscribe((num: number) => {
-      this.fetchPermissions();
-    });
-
     this.fetchPermissions();
   }
 

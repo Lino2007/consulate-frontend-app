@@ -8,8 +8,6 @@ import {Subject} from 'rxjs';
 })
 export class PermissionsService {
 
-  @Output() goBackToLanding: Subject<number> = new Subject<number>();
-
   constructor(private http: HttpClient) { }
 
   // tslint:disable-next-line:typedef

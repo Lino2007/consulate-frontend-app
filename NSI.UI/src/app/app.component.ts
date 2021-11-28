@@ -5,6 +5,7 @@ import { EventMessage, EventType, InteractionStatus } from '@azure/msal-browser'
 import { PrimeNGConfig } from 'primeng/api';
 import { Subject } from 'rxjs';
 import { filter, takeUntil } from 'rxjs/operators';
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-root',
@@ -16,9 +17,10 @@ export class AppComponent {
   menuItems = [];
   private readonly _destroying$ = new Subject<void>();
 
-  constructor (private authService:MsalService,
-              private msalBroadcastService:MsalBroadcastService,
-              private primengConfig: PrimeNGConfig) {
+  constructor(private authService: MsalService,
+              private msalBroadcastService: MsalBroadcastService,
+              private primengConfig: PrimeNGConfig,
+              private cookieService: CookieService) {
   }
 
   ngOnInit() {
@@ -29,7 +31,9 @@ export class AppComponent {
       filter((msg: EventMessage) => msg.eventType === EventType.LOGIN_SUCCESS),
     )
     .subscribe((result: EventMessage) => {
-      console.log(result);
+      console.log(result.payload);
+      // @ts-ignore
+      this.cookieService.set('Token', JSON.stringify(result.payload?.idToken));
     });
   }
 }

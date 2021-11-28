@@ -11,6 +11,8 @@ export const environment = {
   protected: [
     ["https://graph.microsoft.com/v1.0/me","user.read"],
     ["https://graph.microsoft.com/User.ReadBasic.All", "user.readbasic.all"],
+   // ["https://localhost:44318/api/*", null]
+    //["https://myapplication.com", ["custom.scope"]]
   ],
 };
 

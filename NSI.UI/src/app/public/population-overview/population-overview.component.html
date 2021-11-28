@@ -1,0 +1,26 @@
+<app-dashboard-horizontal-menu></app-dashboard-horizontal-menu>
+
+<div class="elements">
+  <app-dashboard-vertical-menu></app-dashboard-vertical-menu>
+  <div>
+    <h1 class="page-title" >Population</h1>
+    <p-table [value]="population" [paginator]="true" [rows]="10" [showCurrentPageReport]="true" responsiveLayout="scroll"
+             currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [rowsPerPageOptions]="[10,25,50]">
+      <ng-template pTemplate="header">
+        <tr>
+          <th>Name</th>
+          <th>Surname</th>
+          <th>Email</th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-population>
+        <tr>
+          <td>{{population.name}}</td>
+          <td>{{population.surname}}</td>
+          <td>{{population.email}}</td>
+        </tr>
+      </ng-template>
+    </p-table>
+  </div>
+</div>
+

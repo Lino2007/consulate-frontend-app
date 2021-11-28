@@ -2,6 +2,24 @@
 
 <div class="elements">
   <app-dashboard-vertical-menu></app-dashboard-vertical-menu>
-  <p>Document requests</p>
+  <div class="w-100">
+    <h1 class="page-title" >Request for a new document</h1>
+    <div class="w-50 m-auto">
+      <div class="mb-5">
+        <label class="labels mr-5 mb-2">Type of document</label>
+        <p-dropdown [options]="documentType" [(ngModel)]="choosenType" optionLabel="name"></p-dropdown>
+      </div>
+
+      <div class="d-flex mb-5">
+        <label class="labels mr-5 mb-2">Reason you need this document</label>
+        <textarea [rows]="5" [cols]="50" autoResize="autoResize" pInputTextarea [(ngModel)]="reason"></textarea>
+      </div>
+
+      <div class="w-100 m-auto">
+        <button class="btn btn-primary w-50 m-auto d-block" type="button" (click)="submit()" >SUBMIT</button>
+      </div>
+
+    </div>
+  </div>
 </div>
 

@@ -8,13 +8,29 @@ import {HttpClient} from '@angular/common/http';
 })
 export class RolesService {
 
-  @Output() goBackToLanding: Subject<number> = new Subject<number>();
-
   constructor(private http: HttpClient) { }
 
   // tslint:disable-next-line:typedef
   public getRoles(){
     return this.http.get(environment.url + '/api/Role');
+  }
+
+  // tslint:disable-next-line:typedef
+  public addRolePermission(roleId: string, permissionId: string) {
+    return this.http.post(environment.url + '/api/Permission/role', {
+      RoleId: roleId,
+      PermissionId: permissionId
+    });
+  }
+
+  // tslint:disable-next-line:typedef
+  public deleteRolePermission(roleId: string, permissionId: string) {
+    return this.http.delete(environment.url + '/api/Permission/role', {
+      params: {
+        RoleId: roleId,
+        PermissionId: permissionId
+      }
+    });
   }
 
 }

@@ -4,7 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import { RouterModule,Routes } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 
 
 import {AccordionModule} from 'primeng/accordion';     // accordion and accordion tab
@@ -58,6 +58,7 @@ import { ConsulsListComponent } from './public/consuls-list/consuls-list.compone
 import {TableModule} from 'primeng/table';
 import {ListboxModule} from 'primeng/listbox';
 import { AddRoleComponent } from './public/add-role/add-role.component';
+import { PopulationOverviewComponent } from './public/population-overview/population-overview.component';
 const isIE = window.navigator.userAgent.indexOf('MSIE ') > -1 || window.navigator.userAgent.indexOf('Trident/') > -1;
 
 export function MSALInstanceFactory(): IPublicClientApplication {
@@ -119,7 +120,8 @@ export function MSALInterceptorConfigFactory(): MsalInterceptorConfiguration {
     RolesListComponent,
     PermissionsListComponent,
     ConsulsListComponent,
-    AddRoleComponent
+    AddRoleComponent,
+    PopulationOverviewComponent
   ],
     imports: [
         BrowserModule,
@@ -174,4 +176,5 @@ export function MSALInterceptorConfigFactory(): MsalInterceptorConfiguration {
     MsalRedirectComponent
   ]
 })
+
 export class AppModule { }

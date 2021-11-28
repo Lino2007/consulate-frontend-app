@@ -15,7 +15,8 @@ import {DocumentRequestsComponent} from './public/document-requests/document-req
 import {ConsulsListComponent} from './public/consuls-list/consuls-list.component';
 import {RolesListComponent} from './public/roles-list/roles-list.component';
 import {PermissionsListComponent} from './public/permissions-list/permissions-list.component';
-import {AddRoleComponent} from "./public/add-role/add-role.component";
+import {AddRoleComponent} from './public/add-role/add-role.component';
+import {PopulationOverviewComponent} from './public/population-overview/population-overview.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent, pathMatch: 'full' },
@@ -33,6 +34,7 @@ const routes: Routes = [
   { path: 'roles', component: RolesListComponent, pathMatch: 'full',  canActivate: [MsalGuard]},
   { path: 'permissions', component: PermissionsListComponent, pathMatch: 'full',  canActivate: [MsalGuard]},
   { path: 'add-role', component: AddRoleComponent, pathMatch: 'full',  canActivate: [MsalGuard]},
+  { path: 'population', component: PopulationOverviewComponent, pathMatch: 'full',  canActivate: [MsalGuard]},
 ];
 
 @NgModule({
