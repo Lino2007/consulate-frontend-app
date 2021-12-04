@@ -28,6 +28,18 @@ steps:
 - script: |
     npm install -g @angular/cli
     npm install
-    ng build --configuration=${buildConfiguration}
+    ng build --configuration=${configuration}
   workingDirectory: $(Build.SourcesDirectory)/NSI.UI
   displayName: 'npm install and build'
+
+- task: CopyFiles@2
+  inputs:
+    SourceFolder: '$(System.DefaultWorkingDirectory)/NSI.UI/dist'
+    TargetFolder: '$(Build.ArtifactStagingDirectory)/dist'
+
+- task: PublishPipelineArtifact@1
+  displayName: 'Publish Artifact: Angular'
+  inputs:
+    artifactName: 'drop'
+    targetPath: '$(Build.ArtifactStagingDirectory)'
+    publishLocation: 'pipeline'
