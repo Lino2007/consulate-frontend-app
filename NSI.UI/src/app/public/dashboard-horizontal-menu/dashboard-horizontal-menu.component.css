@@ -12,11 +12,11 @@
   font-size: 15px;
 }
 
-.logout, .notification {
+.notification {
   cursor: pointer;
 }
 
-.logout:hover, .notification:hover {
+.notification:hover {
   color: #222222;
 }
 

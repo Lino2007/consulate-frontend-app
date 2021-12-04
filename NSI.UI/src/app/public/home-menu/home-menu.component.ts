@@ -3,6 +3,9 @@ import {MSAL_GUARD_CONFIG, MsalBroadcastService, MsalGuardConfiguration, MsalSer
 import {InteractionStatus} from '@azure/msal-browser';
 import {filter, takeUntil} from 'rxjs/operators';
 import {Subject} from 'rxjs';
+import {UserService} from '../../private/services/user.service';
+import {CookieService} from "ngx-cookie-service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-home-menu',
@@ -17,7 +20,14 @@ export class HomeMenuComponent implements OnInit {
 
   constructor(@Inject(MSAL_GUARD_CONFIG) private msalGuardConfig: MsalGuardConfiguration,
               private broadcastService: MsalBroadcastService,
-              private authService: MsalService) {
+              private authService: MsalService,
+              private cookieService: CookieService,
+              private userService: UserService,
+              private router: Router) {
+
+    if (JSON.parse(localStorage.getItem('Role')) === '' && JSON.parse(localStorage.getItem('Token')) !== '') {
+      this.router.navigate(['/register']);
+    }
   }
 
   ngOnInit(): void {
@@ -46,13 +56,6 @@ export class HomeMenuComponent implements OnInit {
 
   setLoginDisplay(): void {
     this.loginDisplay = this.authService.instance.getAllAccounts().length > 0;
-  }
-
-  logout(): void {
-    this.authService.logoutRedirect({
-      postLogoutRedirectUri: 'http://localhost:4200'
-    });
-    this.isIframe = false;
   }
 
 }

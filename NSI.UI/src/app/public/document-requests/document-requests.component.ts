@@ -3,8 +3,9 @@ import {DocumentService} from '../../private/services/document.service';
 import {MSAL_GUARD_CONFIG, MsalBroadcastService, MsalGuardConfiguration, MsalService} from '@azure/msal-angular';
 import {filter} from 'rxjs/operators';
 import {EventMessage, EventType} from '@azure/msal-browser';
-import {PrimeNGConfig} from 'primeng/api';
+import {PrimeNGConfig} from 'primeng/api'
 import {CookieService} from 'ngx-cookie-service';
+import {NotifierService} from "angular-notifier";
 
 @Component({
   selector: 'app-document-requests',
@@ -19,19 +20,27 @@ export class DocumentRequestsComponent implements OnInit {
   ];
   choosenType = {id: 1, name: 'Passport'};
   reason = '';
+  // @ts-ignore
+  private readonly notifier: NotifierService;
 
   constructor(
     private documentService: DocumentService,
-    private cookieService: CookieService
-    ) { }
+    notifierService: NotifierService,
+    ) {
+    this.notifier = notifierService;
+  }
 
   ngOnInit(): void { }
 
   submit(): void {
-    console.log(this.choosenType, this.reason);
-    const token = this.cookieService.get('Token');
-    this.documentService.addDocumentRequest({type: this.choosenType.name, reason: this.reason}, token).subscribe((res: any) => {
+    this.documentService.addDocumentRequest({type: this.choosenType.name, reason: this.reason}).subscribe((res: any) => {
       console.log(res);
+      if (res.success === 'Succeeded') {
+        this.notifier.notify('success', 'Request send!');
+      }
+      else {
+        this.notifier.notify('error', 'Request did not send!');
+      }
     });
   }
 }

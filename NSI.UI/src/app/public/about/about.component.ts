@@ -16,9 +16,4 @@ export class AboutComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  logout(): void {
-    this.authService.logoutRedirect({
-      postLogoutRedirectUri: 'http://localhost:4200'
-    });
-  }
 }

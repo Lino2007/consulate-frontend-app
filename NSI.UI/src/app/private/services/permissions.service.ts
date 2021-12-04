@@ -1,5 +1,5 @@
 import {Injectable, Output} from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {environment} from '../../../environments/environment.prod';
 import {Subject} from 'rxjs';
 
@@ -12,13 +12,23 @@ export class PermissionsService {
 
   // tslint:disable-next-line:typedef
   public getPermissions(){
-    return this.http.get(environment.url + '/api/Permission');
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Authorization': 'Bearer ' + JSON.parse(localStorage.getItem('Token'))
+      })
+    };
+    return this.http.get(environment.url + '/api/Permission', httpOptions);
   }
 
   // tslint:disable-next-line:typedef
   public getPermissionForRole(roleId: string){
-    return this.http.get(environment.url + '/api/Permission', {
-      params: {role: roleId}
-    });
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Authorization': 'Bearer ' + JSON.parse(localStorage.getItem('Token'))
+      }),
+      params: { role: roleId }
+    };
+    // @ts-ignore
+    return this.http.get(environment.url + '/api/Permission', httpOptions);
   }
 }

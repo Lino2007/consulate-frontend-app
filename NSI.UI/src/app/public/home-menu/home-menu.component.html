@@ -8,7 +8,7 @@
       <a class="m-auto mr-3 menuElement" href="/dashboard">DASHBOARD</a>
       <a class="m-auto mr-3 menuElement" href="/about">ABOUT</a>
       <a class="m-auto mr-3 menuElement" *ngIf="!loginDisplay" (click)="login()">LOGIN</a>
-      <a class="m-auto mr-3 menuElement" *ngIf="loginDisplay" (click)="logout()">LOGOUT</a>
+      <app-logout *ngIf="loginDisplay"></app-logout>
     </div>
   </ng-template>
 </p-menubar>

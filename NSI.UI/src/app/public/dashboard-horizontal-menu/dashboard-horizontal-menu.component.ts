@@ -26,10 +26,4 @@ export class DashboardHorizontalMenuComponent implements OnInit {
 
     this.activeItem = this.items[0];
   }
-
-  logout(): void {
-    this.authService.logoutRedirect({
-      postLogoutRedirectUri: 'http://localhost:4200'
-    });
-  }
 }

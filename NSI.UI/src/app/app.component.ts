@@ -6,6 +6,7 @@ import { PrimeNGConfig } from 'primeng/api';
 import { Subject } from 'rxjs';
 import { filter, takeUntil } from 'rxjs/operators';
 import { CookieService } from 'ngx-cookie-service';
+import {UserService} from './private/services/user.service';
 
 @Component({
   selector: 'app-root',
@@ -20,7 +21,9 @@ export class AppComponent {
   constructor(private authService: MsalService,
               private msalBroadcastService: MsalBroadcastService,
               private primengConfig: PrimeNGConfig,
-              private cookieService: CookieService) {
+              private cookieService: CookieService,
+              private userService: UserService,
+              private router: Router) {
   }
 
   ngOnInit() {
@@ -31,9 +34,19 @@ export class AppComponent {
       filter((msg: EventMessage) => msg.eventType === EventType.LOGIN_SUCCESS),
     )
     .subscribe((result: EventMessage) => {
-      console.log(result.payload);
       // @ts-ignore
-      this.cookieService.set('Token', JSON.stringify(result.payload?.idToken));
-    });
+      localStorage.setItem('Token', JSON.stringify(result.payload["idToken"]));
+
+      // @ts-ignore
+      this.userService.getUser(result.payload?.account.username).subscribe((res: any) => {
+        console.log('res', res.data);
+        if (res.data != null) {
+          localStorage.setItem('Role', JSON.stringify(res.data));
+          console.log('toooo', localStorage.getItem('Role'));
+        } else {
+          this.router.navigate(['/register']);
+        }
+      });
+      });
   }
 }

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {PopulationService} from '../../private/services/population.service';
+import {UserService} from "../../private/services/user.service";
 
 const populations = [{
     id: 1,
@@ -73,7 +73,7 @@ export class PopulationOverviewComponent implements OnInit {
   population = populations;
 
   constructor(
-    private populationService: PopulationService,
+    private userService: UserService,
   ) { }
 
   ngOnInit(): void {
@@ -82,7 +82,7 @@ export class PopulationOverviewComponent implements OnInit {
 
   // tslint:disable-next-line:typedef
   fetchPopulation() {
-    /*this.populationService.getPopulation().subscribe((res: any) => {
+    /*this.userService.getPopulation().subscribe((res: any) => {
       this.population = res.data;
     });*/
   }

@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import {AbstractControl, FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {NotifierService} from 'angular-notifier';
 import {Router} from '@angular/router';
+import {UserService} from '../../private/services/user.service';
+import {CookieService} from 'ngx-cookie-service';
+import {MsalService} from '@azure/msal-angular';
 
 interface Gender {
   name: string;
@@ -20,17 +23,18 @@ export class RegisterComponent implements OnInit {
   form: FormGroup;
   submitted = false;
   genders = [];
-  selectedGender: Gender;
+  selectedGender = {name: 'Male', code: 1};
   // @ts-ignore
   private readonly notifier: NotifierService;
 
   constructor(private formBuilder: FormBuilder,
               notifierService: NotifierService,
-              private router: Router) {
+              private router: Router,
+              private authService: MsalService,
+              private userService: UserService) {
     this.notifier = notifierService;
-    this.genders.push({name: 'Female', code: 'F'});
-    this.genders.push({name: 'Male', code: 'M'});
-    this.genders.push({name: 'Other', code: 'O'});
+    this.genders.push({name: 'Female', code: 2});
+    this.genders.push({name: 'Male', code: 1});
   }
 
   ngOnInit(): void {
@@ -64,18 +68,23 @@ export class RegisterComponent implements OnInit {
             Validators.minLength(2)
           ]
         ],
-        password: [
+        placeOfBirth: [
           '',
           [
             Validators.required,
             Validators.minLength(2),
           ]
         ],
-        placeOfBirth: [
+        selectedGender: [
           '',
           [
             Validators.required,
-            Validators.minLength(2),
+          ]
+        ],
+        dateOfBirth: [
+          '',
+          [
+            Validators.required,
           ]
         ],
         country: [
@@ -97,11 +106,39 @@ export class RegisterComponent implements OnInit {
   onSubmit(): void {
     this.submitted = true;
 
+    const user = {
+      firstName: this.form.value.firstName,
+      lastName: this.form.value.lastName,
+      gender: this.form.value.selectedGender.code,
+      email: this.form.value.email,
+      username: this.form.value.username,
+      placeOfBirth: this.form.value.placeOfBirth,
+      dateOfBirth: this.form.value.dateOfBirth,
+      country: this.form.value.country,
+    };
+
     if (this.form.invalid) {
       return;
     }
 
-    this.notifier.notify('success', 'Successful register!');
-    this.router.navigate(['/dashboard']);
+    this.userService.register(user).subscribe(res => {
+      // @ts-ignore
+      if (res.success === 'Succeeded') {
+        this.notifier.notify('success', 'Successful register!');
+        this.router.navigate(['/dashboard']);
+      }
+      else {
+        this.notifier.notify('error', 'Write correct informations!');
+      }
+    });
+  }
+
+  cancel(): void {
+      this.authService.logoutRedirect({
+        postLogoutRedirectUri: 'http://localhost:4200'
+      });
+      localStorage.setItem('Role', JSON.stringify(''));
+      localStorage.setItem('Token', JSON.stringify(''));
+      localStorage.setItem('Menu', JSON.stringify(null));
   }
 }

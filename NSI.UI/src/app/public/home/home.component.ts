@@ -56,9 +56,4 @@ export class HomeComponent implements OnInit {
     this.items = [];
   }
 
-  logout(): void {
-    this.authService.logoutRedirect({
-      postLogoutRedirectUri: 'http://localhost:4200'
-    });
-  }
 }
