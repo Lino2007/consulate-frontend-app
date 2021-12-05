@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { NotifierService } from 'angular-notifier';
+import { ProfileInformationService } from 'src/app/private/services/profile-information.service';
 import {UserService} from "../../private/services/user.service";
 
 const populations = [{
@@ -74,6 +76,8 @@ export class PopulationOverviewComponent implements OnInit {
 
   constructor(
     private userService: UserService,
+    private profileInfoService: ProfileInformationService, 
+    private notifierService: NotifierService
   ) { }
 
   ngOnInit(): void {
@@ -85,5 +89,16 @@ export class PopulationOverviewComponent implements OnInit {
     this.userService.getPopulation().subscribe((res: any) => {
       this.population = res.data;
     });
+  }
+
+  deleteUser(email: string, firstName: string, lastName:string){
+    var question = "Want to delete user " + firstName + " " + lastName + "?";
+    var result = confirm(question);
+    if(result){
+      this.profileInfoService.deleteUserAccount(email).subscribe((res: any) => {
+        this.notifierService.notify('success','User deleted successfuly');
+        this.fetchPopulation();
+      });
+    }
   }
 }

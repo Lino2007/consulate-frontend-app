@@ -14,6 +14,7 @@
           <th>Gender</th>
           <th>Place of birth</th>
           <th>Country</th>
+          <th></th>
         </tr>
       </ng-template>
       <ng-template pTemplate="body" let-population>
@@ -24,6 +25,9 @@
           <td>{{population.gender}}</td>
           <td>{{population.placeOfBirth}}</td>
           <td>{{population.country}}</td>
+          <td>
+            <button class="btn btn-primary add-role-btn" type="button" (click)="deleteUser(population.email, population.firstName, population.lastName)" >Delete</button>
+          </td>
         </tr>
       </ng-template>
     </p-table>
