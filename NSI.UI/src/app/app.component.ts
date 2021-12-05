@@ -36,6 +36,9 @@ export class AppComponent {
     .subscribe((result: EventMessage) => {
       // @ts-ignore
       localStorage.setItem('Token', JSON.stringify(result.payload["idToken"]));
+      // @ts-ignore
+      localStorage.setItem('Username', JSON.stringify(result.payload?.account.username));
+      console.log('username',localStorage.getItem('Username'));
 
       // @ts-ignore
       this.userService.getUser(result.payload?.account.username).subscribe((res: any) => {

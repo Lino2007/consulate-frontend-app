@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import {formatDate} from '@angular/common';
 import { ActivatedRoute,Router } from '@angular/router';
 import { PasswordChangeComponent } from '../password-change/password-change.component';
+import {ProfileInformationService} from '../../private/services/profile-information.service';
+import {CookieService} from 'ngx-cookie-service';
+import {MsalService} from "@azure/msal-angular";
 
 @Component({
   selector: 'app-profile',
@@ -21,15 +24,43 @@ export class ProfileComponent implements OnInit {
   username = 'smujcinovi1';
   email = 'smujcinovi1@etf.unsa.ba'
 
-  constructor(private router: Router, private activatedRoute: ActivatedRoute) {
+  constructor(private router: Router, 
+    private activatedRoute: ActivatedRoute,
+    private profileInfoService: ProfileInformationService,
+    private cookieService: CookieService,
+    private authService: MsalService) {
 
 }
 
   ngOnInit(): void {
+    this.email = JSON.parse(localStorage.getItem('Username'));
+    this.profileInfoService.getUserInformation(this.email).subscribe((res: any) => {
+      console.log('res',res.data);
+      this.firstName = res.data.firstName;
+      this.surname = res.data.lastName;
+      this.gender = res.data.gender;
+      this.email = res.data.email;
+      this.username = res.data.username;
+      this.placeOfBirth = res.data.placeOfBirth;
+      this.dateOfBirth = res.data.dateOfBirth;
+      this.country = res.data.country;
+    });
   }
 
-  changePassword(): void{
-    this.router.navigateByUrl('/change-password');
+  deleteAccount(): void{
+    console.log(this.email);
+    var result = confirm("Want to delete your account?");
+    if (result) {
+      this.profileInfoService.deleteUserAccount(this.email).subscribe((res: any) => {
+        this.authService.logoutRedirect({
+          postLogoutRedirectUri: 'http://localhost:4200'
+        });
+        localStorage.setItem('Role', JSON.stringify(''));
+        localStorage.setItem('Token', JSON.stringify(''));
+        localStorage.setItem('Menu', JSON.stringify(null));
+      });
+    }
+    
   }
 
 }
