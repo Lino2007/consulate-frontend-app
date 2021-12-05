@@ -29,7 +29,22 @@ export class UserService {
   }
 
   // tslint:disable-next-line:typedef
+  public getUserPermission() {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Authorization': 'Bearer ' + JSON.parse(localStorage.getItem('Token'))
+      })
+    };
+    return this.http.get(environment.url + '/api/User/permission', httpOptions);
+  }
+
+  // tslint:disable-next-line:typedef
   public getPopulation(){
-    // return this.http.get(environment.url + '/api/Population');
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Authorization': 'Bearer ' + JSON.parse(localStorage.getItem('Token'))
+      })
+    };
+    return this.http.get(environment.url + '/api/User/users', httpOptions);
   }
 }

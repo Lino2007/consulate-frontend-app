@@ -58,4 +58,16 @@ export class RolesService {
     return this.http.delete(environment.url + '/api/Permission/role', httpOptions);
   }
 
+  // tslint:disable-next-line:typedef
+  public deleteRole(roleId: string) {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Authorization': 'Bearer ' + JSON.parse(localStorage.getItem('Token'))
+      }),
+      params: {
+        RoleId: roleId,
+      }
+    };
+  }
+
 }

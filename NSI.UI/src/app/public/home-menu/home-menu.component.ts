@@ -25,9 +25,9 @@ export class HomeMenuComponent implements OnInit {
               private userService: UserService,
               private router: Router) {
 
-    if (JSON.parse(localStorage.getItem('Role')) === '' && JSON.parse(localStorage.getItem('Token')) !== '') {
+    /*if (JSON.parse(localStorage.getItem('Role')) === '' && JSON.parse(localStorage.getItem('Token')) !== '') {
       this.router.navigate(['/register']);
-    }
+    }*/
   }
 
   ngOnInit(): void {

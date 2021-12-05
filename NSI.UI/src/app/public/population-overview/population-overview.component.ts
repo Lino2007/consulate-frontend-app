@@ -70,7 +70,7 @@ const populations = [{
 })
 export class PopulationOverviewComponent implements OnInit {
 
-  population = populations;
+  population = [];
 
   constructor(
     private userService: UserService,
@@ -82,8 +82,8 @@ export class PopulationOverviewComponent implements OnInit {
 
   // tslint:disable-next-line:typedef
   fetchPopulation() {
-    /*this.userService.getPopulation().subscribe((res: any) => {
+    this.userService.getPopulation().subscribe((res: any) => {
       this.population = res.data;
-    });*/
+    });
   }
 }

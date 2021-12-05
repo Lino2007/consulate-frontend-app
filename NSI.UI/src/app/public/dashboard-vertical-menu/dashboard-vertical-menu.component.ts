@@ -2,6 +2,7 @@ import {Component, Inject, OnInit} from '@angular/core';
 import {MenuItem} from 'primeng/api';
 import {MSAL_GUARD_CONFIG, MsalBroadcastService, MsalGuardConfiguration, MsalService} from '@azure/msal-angular';
 import {PermissionsService} from '../../private/services/permissions.service';
+import {UserService} from '../../private/services/user.service';
 
 @Component({
   selector: 'app-dashboard-vertical-menu',
@@ -12,26 +13,29 @@ export class DashboardVerticalMenuComponent implements OnInit {
 
   verticalMenu: MenuItem[];
   permissions = [];
-  constructor(private permissionsService: PermissionsService ) {
+  constructor(private permissionsService: PermissionsService,
+              private userService: UserService) {
 
-    this.verticalMenu = [
-      {label: 'Dashboard', icon: 'pi pi-fw pi-home', routerLink: '/dashboard'},
-      /*
-      {label: 'Profile information', icon: 'pi pi-fw pi-user', routerLink: '/profile'},
-      {label: 'Request for a document', icon: 'pi pi-fw pi-copy', routerLink: '/document-request'},
-      {label: 'My documents', icon: 'pi pi-fw pi-file-o', routerLink: '/documents'},
-      {label: 'Consuls', icon: 'pi pi-fw pi-briefcase', routerLink: '/consuls'},
-      {label: 'Population', icon: 'pi pi-fw pi-users', routerLink: '/population'},
-      {label: 'Roles', icon: 'pi pi-fw pi-pencil', routerLink: '/roles'},
-      {label: 'Permissions', icon: 'pi pi-fw pi-pencil', routerLink: '/permissions'},
-      */
-    ];
 
-    if (JSON.parse(localStorage.getItem('Menu')) !== null) {
+    if (JSON.parse(localStorage.getItem('Menu')) !== '' && localStorage.getItem('Menu') !== 'null') {
       this.verticalMenu = JSON.parse(localStorage.getItem('Menu'));
     }
     else {
-      this.permissionsService.getPermissionForRole(JSON.parse(localStorage.getItem('Role'))?.name).subscribe((res: any) => {
+      this.verticalMenu = [
+        {label: 'Dashboard', icon: 'pi pi-fw pi-home', routerLink: '/dashboard'},
+        /*
+        {label: 'Profile information', icon: 'pi pi-fw pi-user', routerLink: '/profile'},
+        {label: 'Request for a document', icon: 'pi pi-fw pi-copy', routerLink: '/document-request'},
+        {label: 'My documents', icon: 'pi pi-fw pi-file-o', routerLink: '/documents'},
+        {label: 'Consuls', icon: 'pi pi-fw pi-briefcase', routerLink: '/consuls'},
+        {label: 'Population', icon: 'pi pi-fw pi-users', routerLink: '/population'},
+        {label: 'Roles', icon: 'pi pi-fw pi-pencil', routerLink: '/roles'},
+        {label: 'Permissions', icon: 'pi pi-fw pi-pencil', routerLink: '/permissions'},
+        */
+      ];
+      this.userService.getUserPermission().subscribe((res: any) => {
+        console.log('udeee111');
+        console.log(localStorage.getItem('Token'));
         this.permissions = res.data;
         const permissionsName = [];
 
