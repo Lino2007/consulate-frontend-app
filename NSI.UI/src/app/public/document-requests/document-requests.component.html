@@ -20,9 +20,17 @@
         <label for="file-upload" class="custom-file-upload">
           Upload
         </label>
-        <input id="file-upload" type="file" accept="image/png, image/jpeg, application/pdf"/>
+        <input id="file-upload" type="file"
+               accept="image/png, image/jpeg, application/pdf"
+               multiple
+               (change)="handleFileInput($event.target)"/>
       </div>
 
+      <ul *ngFor="let document of documents">
+        <li>
+          <p>{{document.name}}</p>
+        </li>
+      </ul>
 
       <div class="w-100 m-auto">
         <button class="btn btn-primary w-50 m-auto d-block" type="button" (click)="submit()" >SUBMIT</button>

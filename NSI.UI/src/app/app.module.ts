@@ -61,6 +61,7 @@ import { AddRoleComponent } from './public/add-role/add-role.component';
 import { PopulationOverviewComponent } from './public/population-overview/population-overview.component';
 import {CalendarModule} from 'primeng/calendar';
 import { LogoutComponent } from './public/logout/logout.component';
+import {ProgressSpinnerModule} from "primeng/progressspinner";
 const isIE = window.navigator.userAgent.indexOf('MSIE ') > -1 || window.navigator.userAgent.indexOf('Trident/') > -1;
 
 export function MSALInstanceFactory(): IPublicClientApplication {
@@ -153,6 +154,7 @@ export function MSALInterceptorConfigFactory(): MsalInterceptorConfiguration {
         TableModule,
         ListboxModule,
         CalendarModule,
+        ProgressSpinnerModule,
     ],
   providers: [
     {

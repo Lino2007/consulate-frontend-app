@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {DocumentService} from '../../private/services/document.service';
 
 @Component({
   selector: 'app-document-list',
@@ -7,7 +8,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DocumentListComponent implements OnInit {
 
-  constructor() { }
+  documents = [];
+
+  constructor(private documentService: DocumentService) { }
 
   ngOnInit(): void {
   }

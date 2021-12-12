@@ -3,9 +3,9 @@ import {DocumentService} from '../../private/services/document.service';
 import {MSAL_GUARD_CONFIG, MsalBroadcastService, MsalGuardConfiguration, MsalService} from '@azure/msal-angular';
 import {filter} from 'rxjs/operators';
 import {EventMessage, EventType} from '@azure/msal-browser';
-import {PrimeNGConfig} from 'primeng/api'
+import {PrimeNGConfig} from 'primeng/api';
 import {CookieService} from 'ngx-cookie-service';
-import {NotifierService} from "angular-notifier";
+import {NotifierService} from 'angular-notifier';
 
 @Component({
   selector: 'app-document-requests',
@@ -20,6 +20,8 @@ export class DocumentRequestsComponent implements OnInit {
   ];
   choosenType = {id: 1, name: 'Passport'};
   reason = '';
+  documents = [];
+
   // @ts-ignore
   private readonly notifier: NotifierService;
 
@@ -42,5 +44,16 @@ export class DocumentRequestsComponent implements OnInit {
         this.notifier.notify('error', 'Request did not send!');
       }
     });
+  }
+
+  handleFileInput(file: any): void {
+    console.log(file.files);
+    if (file.files.length > 5) {
+      this.notifier.notify('error', 'You can upload only 5 documents!');
+      this.documents = [];
+    }
+    else {
+      this.documents = file.files;
+    }
   }
 }

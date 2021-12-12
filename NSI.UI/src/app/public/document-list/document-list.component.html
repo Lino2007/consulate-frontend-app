@@ -2,6 +2,27 @@
 
 <div class="elements">
   <app-dashboard-vertical-menu></app-dashboard-vertical-menu>
-  <p>Document list</p>
+  <div>
+    <h1 class="page-title" >Documents</h1>
+    <p-table [value]="documents" [paginator]="true" [rows]="10" [showCurrentPageReport]="true" responsiveLayout="scroll"
+             currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [rowsPerPageOptions]="[10,25,50]">
+      <ng-template pTemplate="header">
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th></th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-document>
+        <tr>
+          <td>{{document.name}}</td>
+          <td>{{document.type}}</td>
+          <td>
+            <button class="btn btn-primary add-role-btn" type="button" (click)="deleteUser(population.email, population.firstName, population.lastName)" >Delete</button>
+          </td>
+        </tr>
+      </ng-template>
+    </p-table>
+  </div>
 </div>
 
