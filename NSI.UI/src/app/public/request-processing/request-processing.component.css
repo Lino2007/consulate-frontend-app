@@ -1,0 +1,15 @@
+@import  "~primeicons/primeicons.css";
+
+.tcontainer {
+    display: flex;
+    margin: 1%;
+    flex-direction: column;
+}
+
+.main-title {
+    margin-top: 0.5%;
+}
+
+th, td{
+    word-break: break-all;
+}

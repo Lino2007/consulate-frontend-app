@@ -1,0 +1,97 @@
+<app-dashboard-horizontal-menu></app-dashboard-horizontal-menu>
+
+<div class="elements">
+
+    <div class="tcontainer">
+        <h1 class="main-title">Request list</h1>
+            <p-table [value]="requestPayload" [paginator]="true" [rows]="5" [showCurrentPageReport]="true"
+                responsiveLayout="scroll" [totalRecords]="totalRecords" [loading]="loading" [style]="{'margin-top':'1%'}" 
+                [rowsPerPageOptions]="[5,10]" [lazy]="true" (onLazyLoad)="loadNewPage($event)"  dataKey="request.id">
+                <ng-template pTemplate="header">
+                    <tr>
+                        <th style="width: 3rem"></th>
+                        <th>Id</th>
+                        <th>User</th>
+                        <th>Type</th>
+                        <th>Reason</th>
+                        <th>State</th>
+                        <th>Date created</th>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-rq let-expanded="expanded">
+                    <tr>
+                        <td>
+                            <button type="button" pButton pRipple [pRowToggler]="rq" class="p-button-text p-button-rounded p-button-plain" [icon]="expanded ? 'pi pi-chevron-down' : 'pi pi-chevron-right'"></button>
+                        </td>
+                        <td>{{rq.request.id}}</td>
+                        <td>{{rq.request.user}}</td>
+                        <td>{{rq.request.type}}</td>
+                        <td>{{rq.request.reason}}</td>
+                        <td><p-dropdown [options]="RequestState" [ngModel]="rq.request.state" (onChange)="onChange($event, rq.request)"></p-dropdown></td>
+                        <td>{{rq.request.dateCreated}}</td>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="rowexpansion" let-rq>
+                    <tr>
+                        <td colspan="3">
+                            <div class="p-p-3">
+                                <h2>Attachments&nbsp;<i class="pi pi-paperclip"></i></h2>
+                                <p-table [value]="rq.attachment" dataKey="url">
+                                    <ng-template pTemplate="header">
+                                        <tr>
+                                            <th>Url </th>
+                                            <th>Type </th>
+                                        </tr>
+                                    </ng-template>
+                                    <ng-template pTemplate="body" let-attach>
+                                        <tr>
+                                            <td>
+                                                <a href="{{attach.url}}">{{attach.url}}</a>
+                                               </td>
+                                            <td>{{attach.documentType}}</td>
+                                        </tr>
+                                    </ng-template>
+                                    <ng-template pTemplate="emptymessage">
+                                        <tr>
+                                            <td colspan="3">This request doesn't have attachments.</td>
+                                        </tr>
+                                    </ng-template>
+                                </p-table>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="4">
+                            <div class="p-p-3">
+                                <h2>Documents&nbsp;<i class="pi pi-file-o"></i></h2>
+                                <p-table [value]="rq.document" dataKey="url">
+                                    <ng-template pTemplate="header">
+                                        <tr>
+                                            <th>Url </th>
+                                            <th>Title </th>
+                                            <th>Expiration date </th>
+                                            <th>Type </th>
+                                        </tr>
+                                    </ng-template>
+                                    <ng-template pTemplate="body" let-doc>
+                                        <tr>
+                                            <td>{{doc.url}}</td>
+                                            <td>{{doc.title}}</td>
+                                            <td>{{doc.dateOfExpiration}}</td>
+                                            <td>{{doc.documentType}}</td>
+                                        </tr>
+                                    </ng-template>
+                                    <ng-template pTemplate="emptymessage">
+                                        <tr>
+                                            <td colspan="3">This request doesn't have generated documents.</td>
+                                        </tr>
+                                    </ng-template>
+                                </p-table>
+                            </div>
+                        </td>
+                    </tr>
+                </ng-template>
+            </p-table>
+        </div>
+ 
+</div>

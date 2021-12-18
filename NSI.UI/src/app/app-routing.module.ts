@@ -17,12 +17,14 @@ import {RolesListComponent} from './public/roles-list/roles-list.component';
 import {PermissionsListComponent} from './public/permissions-list/permissions-list.component';
 import {AddRoleComponent} from './public/add-role/add-role.component';
 import {PopulationOverviewComponent} from './public/population-overview/population-overview.component';
+import { RequestProcessingComponent } from './public/request-processing/request-processing.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent, pathMatch: 'full' },
   { path: 'login', component: LoginComponent, pathMatch: 'full'},
   { path: 'register', component: RegisterComponent, pathMatch: 'full'},
   { path: 'home', component: HomeComponent, pathMatch: 'full'},
+  { path: 'request-processing', component: RequestProcessingComponent, pathMatch: 'full'},
   { path: 'dashboard', component: DashboardComponent, pathMatch: 'full',  canActivate: [MsalGuard]},
   { path: 'profile', component: ProfileComponent, pathMatch: 'full',  canActivate: [MsalGuard]},
   { path: 'about', component: AboutComponent, pathMatch: 'full'},
@@ -35,6 +37,7 @@ const routes: Routes = [
   { path: 'permissions', component: PermissionsListComponent, pathMatch: 'full',  canActivate: [MsalGuard]},
   { path: 'add-role', component: AddRoleComponent, pathMatch: 'full',  canActivate: [MsalGuard]},
   { path: 'population', component: PopulationOverviewComponent, pathMatch: 'full',  canActivate: [MsalGuard]},
+  // dodati path request-processing
 ];
 
 @NgModule({
