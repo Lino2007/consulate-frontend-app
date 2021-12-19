@@ -2,6 +2,35 @@
 
 <div class="elements">
   <app-dashboard-vertical-menu></app-dashboard-vertical-menu>
-  <p>Consuls list</p>
+  <div>
+    <h1 class="page-title" >Consuls</h1>
+    <p-table [value]="consuls" [paginator]="true" [rows]="10" [showCurrentPageReport]="true" responsiveLayout="scroll"
+             currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [rowsPerPageOptions]="[10,25,50]">
+      <ng-template pTemplate="header">
+        <tr>
+          <th>Name</th>
+          <th>Surname</th>
+          <th>Email</th>
+          <th>Gender</th>
+          <th>Place of birth</th>
+          <th>Country</th>
+          <th></th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-consuls>
+        <tr>
+          <td>{{consuls.firstName}}</td>
+          <td>{{consuls.lastName}}</td>
+          <td>{{consuls.email}}</td>
+          <td>{{consuls.gender}}</td>
+          <td>{{consuls.placeOfBirth}}</td>
+          <td>{{consuls.country}}</td>
+          <td>
+            <button class="btn btn-primary add-role-btn" type="button" (click)="deleteConsul(consuls.email, consuls.firstName, consuls.lastName)" >Delete</button>
+          </td>
+        </tr>
+      </ng-template>
+    </p-table>
+  </div>
 </div>
 
