@@ -63,6 +63,7 @@ import {CalendarModule} from 'primeng/calendar';
 import { LogoutComponent } from './public/logout/logout.component';
 import {ProgressSpinnerModule} from "primeng/progressspinner";
 import { RequestProcessingComponent } from './public/request-processing/request-processing.component';
+import { AddConsulComponent } from './public/add-consul/add-consul.component';
 const isIE = window.navigator.userAgent.indexOf('MSIE ') > -1 || window.navigator.userAgent.indexOf('Trident/') > -1;
 
 export function MSALInstanceFactory(): IPublicClientApplication {
@@ -127,7 +128,8 @@ export function MSALInterceptorConfigFactory(): MsalInterceptorConfiguration {
     AddRoleComponent,
     PopulationOverviewComponent,
     LogoutComponent,
-    RequestProcessingComponent
+    RequestProcessingComponent,
+    AddConsulComponent
   ],
     imports: [
         BrowserModule,

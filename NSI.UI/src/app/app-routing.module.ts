@@ -18,6 +18,7 @@ import {PermissionsListComponent} from './public/permissions-list/permissions-li
 import {AddRoleComponent} from './public/add-role/add-role.component';
 import {PopulationOverviewComponent} from './public/population-overview/population-overview.component';
 import { RequestProcessingComponent } from './public/request-processing/request-processing.component';
+import { AddConsulComponent } from './public/add-consul/add-consul.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent, pathMatch: 'full' },
@@ -37,6 +38,7 @@ const routes: Routes = [
   { path: 'permissions', component: PermissionsListComponent, pathMatch: 'full',  canActivate: [MsalGuard]},
   { path: 'add-role', component: AddRoleComponent, pathMatch: 'full',  canActivate: [MsalGuard]},
   { path: 'population', component: PopulationOverviewComponent, pathMatch: 'full',  canActivate: [MsalGuard]},
+  { path: 'add-consul', component: AddConsulComponent, pathMatch: 'full',  canActivate: [MsalGuard]},
   // dodati path request-processing
 ];
 

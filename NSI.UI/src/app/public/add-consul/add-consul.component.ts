@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import {AbstractControl, FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {NotifierService} from 'angular-notifier';
-import {Router} from '@angular/router';
-import {UserService} from '../../private/services/user.service';
 import {CookieService} from 'ngx-cookie-service';
-import {MsalService} from '@azure/msal-angular';
+import {MsalService} from "@azure/msal-angular";
+import { ActivatedRoute,Router } from '@angular/router';
+import { EmployeeService } from 'src/app/private/services/employee.service';
+import { NotifierService } from 'angular-notifier';
+import {AbstractControl, FormBuilder, FormGroup, Validators} from '@angular/forms';
 
 interface Gender {
   name: string;
@@ -12,30 +12,38 @@ interface Gender {
 }
 
 @Component({
-  selector: 'app-register',
-  templateUrl: './register.component.html',
-  styleUrls: ['./register.component.css']
+  selector: 'app-add-consul',
+  templateUrl: './add-consul.component.html',
+  styleUrls: ['./add-consul.component.css']
 })
-
-export class RegisterComponent implements OnInit {
+export class AddConsulComponent implements OnInit {
 
   // @ts-ignore
   form: FormGroup;
   submitted = false;
   genders = [];
   selectedGender = {name: 'Male', code: 1};
-  // @ts-ignore
-  private readonly notifier: NotifierService;
 
-  constructor(private formBuilder: FormBuilder,
-              notifierService: NotifierService,
-              private router: Router,
-              private authService: MsalService,
-              private userService: UserService) {
-    this.notifier = notifierService;
-    this.genders.push({name: 'Female', code: 2});
-    this.genders.push({name: 'Male', code: 1});
-  }
+  firstName = '';
+  surname = '';
+  gender = '';
+  selectedBirthDay?: Date;
+  placeOfBirth = '';
+  country = '';
+  username = '';
+  email = ''
+
+  constructor(private router: Router, 
+    private activatedRoute: ActivatedRoute,
+    private cookieService: CookieService,
+    private authService: MsalService,
+    private employeeService: EmployeeService,
+    private notifier: NotifierService,
+    private formBuilder: FormBuilder,) {
+      this.genders.push({name: 'Female', code: 2});
+      this.genders.push({name: 'Male', code: 1});
+      this.selectedGender = this.genders[1];
+    }
 
   ngOnInit(): void {
     this.form = this.formBuilder.group(
@@ -127,14 +135,15 @@ export class RegisterComponent implements OnInit {
     return dateString;
   }
 
-  onSubmit(): void {
+  submit() {
+
     this.submitted = true;
     const stringDate = this.dateToString(this.form.value.dateOfBirth);
 
     const user = {
       firstName: this.form.value.firstName,
       lastName: this.form.value.lastName,
-      gender: this.form.value.selectedGender.code,
+      gender: this.form.value.selectedGender.name,
       email: this.form.value.email,
       username: this.form.value.username,
       placeOfBirth: this.form.value.placeOfBirth,
@@ -142,29 +151,23 @@ export class RegisterComponent implements OnInit {
       country: this.form.value.country,
     };
 
+    console.log(stringDate);
+    console.log(user);
+
     if (this.form.invalid) {
       return;
     }
 
-    this.userService.register(user).subscribe(res => {
-      console.log(user.dateOfBirth);
+    this.employeeService.addEmployee(user).subscribe(res => {
       // @ts-ignore
       if (res.success === 'Succeeded') {
         this.notifier.notify('success', 'Successful register!');
-        this.router.navigate(['/dashboard']);
+        this.router.navigate(['/consuls']);
       }
       else {
         this.notifier.notify('error', 'Write correct informations!');
       }
     });
-  }
 
-  cancel(): void {
-      this.authService.logoutRedirect({
-        postLogoutRedirectUri: 'http://localhost:4200'
-      });
-      localStorage.setItem('Role', JSON.stringify(''));
-      localStorage.setItem('Token', JSON.stringify(''));
-      localStorage.setItem('Menu', JSON.stringify(null));
   }
 }

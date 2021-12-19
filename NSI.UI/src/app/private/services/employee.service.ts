@@ -30,4 +30,15 @@ export class EmployeeService {
     return this.http.delete(environment.url + '/api/Employee/' + employeeEmail, httpOptions);
   }
 
+  public addEmployee(body: any){
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Authorization': 'Bearer ' + JSON.parse(localStorage.getItem('Token')),
+        'Content-Type': 'application/json',
+        'accept': 'text/plain'
+      }),
+    };
+    return this.http.post(environment.url + '/api/Employee', JSON.stringify(body), httpOptions);
+  }
+
 }

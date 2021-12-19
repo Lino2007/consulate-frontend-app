@@ -124,7 +124,7 @@
                         placeholder="Select a Gender"
                         optionLabel="name">
             </p-dropdown>
-            <div *ngIf="submitted && f.country.errors" class="error">
+            <div *ngIf="submitted && f.selectedGender.errors" class="error">
               <small  id="selectedGender-help" class="p-error" *ngIf="f.selectedGender.errors.required">Gender is required.</small>
             </div>
           </div>
