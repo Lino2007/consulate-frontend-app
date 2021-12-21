@@ -13,7 +13,7 @@ export class RequestService {
   private httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json',
-      // 'Authorization': 'Bearer ' + JSON.parse(localStorage.getItem('Token'))
+      'Authorization': 'Bearer ' + JSON.parse(localStorage.getItem('Token'))
     })
   };
   
