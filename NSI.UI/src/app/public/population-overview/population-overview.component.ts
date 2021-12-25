@@ -76,7 +76,7 @@ export class PopulationOverviewComponent implements OnInit {
 
   constructor(
     private userService: UserService,
-    private profileInfoService: ProfileInformationService, 
+    private profileInfoService: ProfileInformationService,
     private notifierService: NotifierService
   ) { }
 

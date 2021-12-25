@@ -5,3 +5,8 @@
 :host ::ng-deep .p-megamenu .p-megamenu-root-list > .p-menuitem > .p-menuitem-link:focus{
   box-shadow: none !important;
 }
+
+.spinner svg{
+  width: 50%;
+  margin-left: 50px;
+}

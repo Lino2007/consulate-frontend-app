@@ -1,6 +1,7 @@
 .elements {
   width: auto;
   color: rgba(0, 0, 0, 0.5);
+  height: 100%;
 }
 
 body {
@@ -66,7 +67,7 @@ body {
   font-size: 40px;
 }
 
-@media 
+@media
   (max-device-width: 492px) {
     .elements{
       display: inline;

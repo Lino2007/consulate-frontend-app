@@ -1,5 +1,12 @@
 @import  "~primeicons/primeicons.css";
 
+.elements {
+  display: inline-flex;
+  color: rgba(0, 0, 0, 0.5);
+  width: 100%;
+  height: 100%;
+}
+
 .tcontainer {
     display: flex;
     margin: 1%;
@@ -7,7 +14,9 @@
 }
 
 .main-title {
-    margin-top: 0.5%;
+  text-align: center;
+  margin: 40px 0;
+  font-size: 40px;
 }
 
 th, td{

@@ -1,11 +1,11 @@
 <app-dashboard-horizontal-menu></app-dashboard-horizontal-menu>
 
 <div class="elements">
-
+  <app-dashboard-vertical-menu></app-dashboard-vertical-menu>
     <div class="tcontainer">
         <h1 class="main-title">Request list</h1>
             <p-table [value]="requestPayload" [paginator]="true" [rows]="5" [showCurrentPageReport]="true"
-                responsiveLayout="scroll" [totalRecords]="totalRecords" [loading]="loading" [style]="{'margin-top':'1%'}" 
+                responsiveLayout="scroll" [totalRecords]="totalRecords" [loading]="loading" [style]="{'margin-top':'1%'}"
                 [rowsPerPageOptions]="[5,10]" [lazy]="true" (onLazyLoad)="loadNewPage($event)"  dataKey="request.id">
                 <ng-template pTemplate="header">
                     <tr>
@@ -93,5 +93,5 @@
                 </ng-template>
             </p-table>
         </div>
- 
+
 </div>

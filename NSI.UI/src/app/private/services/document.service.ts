@@ -10,12 +10,12 @@ export class DocumentService {
   constructor(private http: HttpClient) { }
 
   // tslint:disable-next-line:typedef
-  public addDocumentRequest(body: any) {
+  public getDocuments() {
     const httpOptions = {
       headers: new HttpHeaders({
         'Authorization': 'Bearer ' + JSON.parse(localStorage.getItem('Token'))
       })
     };
-    return this.http.post(environment.url + '/api/Request', body, httpOptions);
+    return this.http.get(environment.url + '/api/User/document', httpOptions);
   }
 }

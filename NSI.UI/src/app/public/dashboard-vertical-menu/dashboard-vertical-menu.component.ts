@@ -34,8 +34,6 @@ export class DashboardVerticalMenuComponent implements OnInit {
         */
       ];
       this.userService.getUserPermission().subscribe((res: any) => {
-        console.log('udeee111');
-        console.log(localStorage.getItem('Token'));
         this.permissions = res.data;
         const permissionsName = [];
 
@@ -43,23 +41,24 @@ export class DashboardVerticalMenuComponent implements OnInit {
           permissionsName.splice(0, 0, permis?.name);
         });
 
-        if (permissionsName.indexOf('document:create') !== -1) {
+        /*if (permissionsName.indexOf('document:create') !== -1) {
           this.verticalMenu.splice(this.verticalMenu.length, 0,
             {label: 'Dashboard', icon: 'pi pi-fw pi-home', routerLink: '/dashboard'});
-        }
+        }*/
         if (permissionsName.indexOf('employee:delete') !== -1 ||
               permissionsName.indexOf('employee:update') !== -1 ||
-                permissionsName.indexOf('employee:create') !== -1) {
+                permissionsName.indexOf('employee:create') !== -1 ||
+                  permissionsName.indexOf('employee:view') !== -1) {
           this.verticalMenu.splice(this.verticalMenu.length, 0,
             {label: 'Consuls', icon: 'pi pi-fw pi-briefcase', routerLink: '/consuls'});
-        }
-        if (permissionsName.indexOf('permission:modify') !== -1) {
-          this.verticalMenu.splice(this.verticalMenu.length, 0,
-            {label: 'Permissions', icon: 'pi pi-fw pi-pencil', routerLink: '/permissions'});
         }
         if (permissionsName.indexOf('user:delete') !== -1) {
           this.verticalMenu.splice(this.verticalMenu.length, 0,
             {label: 'Population', icon: 'pi pi-fw pi-users', routerLink: '/population'});
+        }
+        if (permissionsName.indexOf('permission:modify') !== -1) {
+          this.verticalMenu.splice(this.verticalMenu.length, 0,
+            {label: 'Permissions', icon: 'pi pi-fw pi-pencil', routerLink: '/permissions'});
         }
         if (permissionsName.indexOf('role:modify') !== -1) {
           this.verticalMenu.splice(this.verticalMenu.length, 0,
@@ -75,7 +74,7 @@ export class DashboardVerticalMenuComponent implements OnInit {
         }
         if (permissionsName.indexOf('request:view') !== -1) {
           this.verticalMenu.splice(this.verticalMenu.length, 0,
-            {label: 'Documents', icon: 'pi pi-fw pi-file-o', routerLink: '/documents'});
+            {label: 'Request processing', icon: 'pi pi-fw pi-file-o', routerLink: '/request-processing'});
         }
         if (permissionsName.indexOf('request:create') !== -1) {
           this.verticalMenu.splice(this.verticalMenu.length, 0,

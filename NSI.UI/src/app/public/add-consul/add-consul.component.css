@@ -1,8 +1,9 @@
 .elements {
     display: auto;
     color: rgba(0, 0, 0, 0.5);
+    height: 100%;
   }
-  
+
   .page-title {
     text-align: center;
     margin: 40px 0;
@@ -21,14 +22,14 @@
     margin: 20px 0;
     text-align: center;
   }
-  
+
   .btn {
     background: #7a71ff;
     box-shadow: none;
     border: none;
     width: 50%;
   }
-  
+
   .btn:hover {
     background: #655dd9
   }
@@ -40,7 +41,7 @@
   .labelBlock {
     display: block;
   }
-  
+
 input {
   width: 100%;
 }

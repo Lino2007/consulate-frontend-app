@@ -1,4 +1,20 @@
 .elements {
   display: inline-flex;
+  width: 100%;
   color: rgba(0, 0, 0, 0.5);
+  height: 100%;
+}
+
+.content {
+  width: 100%;
+}
+
+.page-title {
+  text-align: center;
+  margin: 40px 0;
+  font-size: 40px;
+}
+
+.aboutContent {
+  text-align: center;
 }

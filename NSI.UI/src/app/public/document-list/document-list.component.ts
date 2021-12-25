@@ -13,6 +13,15 @@ export class DocumentListComponent implements OnInit {
   constructor(private documentService: DocumentService) { }
 
   ngOnInit(): void {
+    this.fetchDocument();
+  }
+
+  // tslint:disable-next-line:typedef
+  fetchDocument() {
+    this.documentService.getDocuments().subscribe((res: any) => {
+      this.documents = res.data;
+      console.log(this.documents);
+    });
   }
 
 }

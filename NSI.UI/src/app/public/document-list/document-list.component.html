@@ -10,15 +10,20 @@
         <tr>
           <th>Name</th>
           <th>Type</th>
+          <th>Date of experation</th>
+          <th>Active</th>
+          <th>Download</th>
           <th></th>
         </tr>
       </ng-template>
       <ng-template pTemplate="body" let-document>
         <tr>
-          <td>{{document.name}}</td>
-          <td>{{document.type}}</td>
+          <td>{{document.requestId}}</td>
+          <td>{{document.typeId}}</td>
+          <td>{{document.dateOfExpiration}}</td>
+          <td>{{document.active}}</td>
           <td>
-            <button class="btn btn-primary add-role-btn" type="button" (click)="deleteUser(population.email, population.firstName, population.lastName)" >Delete</button>
+            <mat-icon href="{{document.url}}" aria-hidden="false" aria-label="Download icon">download</mat-icon>
           </td>
         </tr>
       </ng-template>

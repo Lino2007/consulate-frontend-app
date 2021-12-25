@@ -16,8 +16,18 @@ export class RequestService {
       'Authorization': 'Bearer ' + JSON.parse(localStorage.getItem('Token'))
     })
   };
-  
+
   constructor(private http: HttpClient) { }
+
+  // tslint:disable-next-line:typedef
+  public addRequestItem(body) {
+    const httpOptionss = {
+      headers: new HttpHeaders({
+        'Authorization': 'Bearer ' + JSON.parse(localStorage.getItem('Token'))
+      })
+    };
+    return this.http.post(environment.url + this.path, body, httpOptionss);
+  }
 
   public getReqItems(page: Number, recordsPerPage: Number): Observable<object> {
     if (page < 0 && recordsPerPage < 0) {
@@ -28,7 +38,7 @@ export class RequestService {
     const pagingPath: string = `/paging?Paging.Page=${this.page}&Paging.RecordsPerPage=${this.recordsPerPage}`;
     return this.http.get(environment.url + this.path + pagingPath, this.httpOptions);
   }
-  
+
     public updateRequestItem(body) {
       return this.http.put(environment.url + this.path, body, this.httpOptions);
     }
