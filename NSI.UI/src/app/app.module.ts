@@ -19,8 +19,6 @@ import {RippleModule} from 'primeng/ripple';
 
 
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import { NewsListComponent } from './public/news-list/news-list.component';
-import { NewsItemComponent } from './public/news-item/news-item.component';
 
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
@@ -49,7 +47,6 @@ import { HomeMenuComponent } from './public/home-menu/home-menu.component';
 import { FooterComponent } from './public/footer/footer.component';
 import { DashboardHorizontalMenuComponent } from './public/dashboard-horizontal-menu/dashboard-horizontal-menu.component';
 import { DashboardVerticalMenuComponent } from './public/dashboard-vertical-menu/dashboard-vertical-menu.component';
-import { PasswordChangeComponent } from './public/password-change/password-change.component';
 import { DocumentRequestsComponent } from './public/document-requests/document-requests.component';
 import { DocumentListComponent } from './public/document-list/document-list.component';
 import { RolesListComponent } from './public/roles-list/roles-list.component';
@@ -107,8 +104,6 @@ export function MSALInterceptorConfigFactory(): MsalInterceptorConfiguration {
 @NgModule({
   declarations: [
     AppComponent,
-    NewsListComponent,
-    NewsItemComponent,
     LoginComponent,
     RegisterComponent,
     DashboardComponent,
@@ -120,7 +115,6 @@ export function MSALInterceptorConfigFactory(): MsalInterceptorConfiguration {
     FooterComponent,
     DashboardHorizontalMenuComponent,
     DashboardVerticalMenuComponent,
-    PasswordChangeComponent,
     DocumentRequestsComponent,
     DocumentListComponent,
     RolesListComponent,

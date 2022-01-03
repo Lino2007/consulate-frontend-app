@@ -24,10 +24,10 @@ export class AddRoleComponent implements OnInit {
   constructor(
     private rolesService: RolesService,
     private permissionsService: PermissionsService,
-    private router: Router, 
+    private router: Router,
     private activatedRoute: ActivatedRoute,
-    notifierService: NotifierService,) 
-    { 
+    notifierService: NotifierService,)
+    {
       this.notifier = notifierService;
     }
 
@@ -49,7 +49,7 @@ export class AddRoleComponent implements OnInit {
   }
 
   addPermission(permission: any): void {
-    this.addedPermissions.splice(0,0,permission);
+    this.addedPermissions.splice(0,0, permission);
   }
 
   deletePermission(permission: any): void {
@@ -90,7 +90,7 @@ export class AddRoleComponent implements OnInit {
         });
         this.cancle = false;
         this.notifier.notify('success', 'Role added!');
-        this.router.navigateByUrl('/roles');
+        this.router.navigate(['/dashboard']);
     }
     else{
       this.notifier.notify('error', 'Role already exists!');

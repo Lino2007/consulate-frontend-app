@@ -147,7 +147,7 @@ export class RegisterComponent implements OnInit {
     }
 
     this.userService.register(user).subscribe(res => {
-      console.log(user.dateOfBirth);
+      (user.dateOfBirth);
       // @ts-ignore
       if (res.success === 'Succeeded') {
         this.notifier.notify('success', 'Successful register!');

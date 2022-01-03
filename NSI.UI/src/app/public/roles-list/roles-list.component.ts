@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {RolesService} from '../../private/services/roles.service';
 import {PermissionsService} from '../../private/services/permissions.service';
-import {Permission} from "../../models/permission.model";
-import {NotifierService} from "angular-notifier";
+import {Permission} from '../../models/permission.model';
+import {NotifierService} from 'angular-notifier';
 
 @Component({
   selector: 'app-roles-list',
@@ -68,7 +68,7 @@ export class RolesListComponent implements OnInit {
   }
 
   deleteRole(): void {
-    console.log('delete');
+    //console.log('delete');
   }
 
   updateRole(): void {

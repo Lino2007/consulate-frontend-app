@@ -4,7 +4,7 @@ export class FullRequest {
     attachment?: (Attachment)[] | null;
   }
 
-  export class ShortReq {
+export class ShortReq {
     id: string;
     user: string;
     employee: string;
@@ -13,8 +13,8 @@ export class FullRequest {
     type: string;
     state: string;
   }
-  
-  export class Document {
+
+export class Document {
     dateCreated: string;
     dateOfExpiration: string;
     url: string;
@@ -23,9 +23,8 @@ export class FullRequest {
     documentType: string;
   }
 
-  export class Attachment {
+export class Attachment {
     id: string;
     url: string;
     documentType: string;
   }
-  

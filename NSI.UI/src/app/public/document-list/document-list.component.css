@@ -9,3 +9,10 @@
   margin: 40px 0;
   font-size: 40px;
 }
+
+:host ::ng-deep .p-datatable .p-datatable-thead > tr > th,
+:host ::ng-deep .p-datatable .p-datatable-tbody > tr > td {
+  text-align: center;
+}
+
+

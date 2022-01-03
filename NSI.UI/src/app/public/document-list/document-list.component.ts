@@ -20,7 +20,6 @@ export class DocumentListComponent implements OnInit {
   fetchDocument() {
     this.documentService.getDocuments().subscribe((res: any) => {
       this.documents = res.data;
-      console.log(this.documents);
     });
   }
 

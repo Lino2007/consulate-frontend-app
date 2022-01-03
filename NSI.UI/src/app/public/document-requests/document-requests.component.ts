@@ -7,6 +7,7 @@ import {PrimeNGConfig} from 'primeng/api';
 import {CookieService} from 'ngx-cookie-service';
 import {NotifierService} from 'angular-notifier';
 import {RequestService} from '../../private/services/request.service';
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-document-requests',
@@ -30,6 +31,7 @@ export class DocumentRequestsComponent implements OnInit {
   constructor(
     private requestService: RequestService,
     notifierService: NotifierService,
+    private router: Router,
     ) {
     this.notifier = notifierService;
   }
@@ -42,10 +44,13 @@ export class DocumentRequestsComponent implements OnInit {
     formData.append('reason', this.reason);
     formData.append('attachments', this.documents);
     formData.append(`attachmentTypes`, this.type);
+    if (this.choosenType.name === '' || this.reason === '' || this.documents.length === 0 )
+      this.notifier.notify('error', 'Please fill all fields!');
     // tslint:disable-next-line:max-line-length
     this.requestService.addRequestItem(formData).subscribe((res: any) => {
       if (res.success === 'Succeeded') {
         this.notifier.notify('success', 'Request send!');
+        this.router.navigate(['/dashboard']);
       }
       else {
         this.notifier.notify('error', 'Request did not send!');

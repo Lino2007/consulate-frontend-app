@@ -33,7 +33,7 @@ export class AddConsulComponent implements OnInit {
   username = '';
   email = ''
 
-  constructor(private router: Router, 
+  constructor(private router: Router,
     private activatedRoute: ActivatedRoute,
     private cookieService: CookieService,
     private authService: MsalService,
@@ -150,9 +150,6 @@ export class AddConsulComponent implements OnInit {
       dateOfBirth: stringDate,
       country: this.form.value.country,
     };
-
-    console.log(stringDate);
-    console.log(user);
 
     if (this.form.invalid) {
       return;

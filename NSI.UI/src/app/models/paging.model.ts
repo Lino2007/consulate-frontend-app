@@ -4,6 +4,3 @@ export class Paging {
     recordsPerPage: number;
     totalRecords: number;
   }
-
-  
-  

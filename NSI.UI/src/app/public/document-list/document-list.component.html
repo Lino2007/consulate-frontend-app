@@ -8,22 +8,22 @@
              currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [rowsPerPageOptions]="[10,25,50]">
       <ng-template pTemplate="header">
         <tr>
-          <th>Name</th>
-          <th>Type</th>
+          <th>Title</th>
           <th>Date of experation</th>
           <th>Active</th>
-          <th>Download</th>
+          <th>View document</th>
           <th></th>
         </tr>
       </ng-template>
       <ng-template pTemplate="body" let-document>
         <tr>
-          <td>{{document.requestId}}</td>
-          <td>{{document.typeId}}</td>
-          <td>{{document.dateOfExpiration}}</td>
-          <td>{{document.active}}</td>
+          <td>{{document.title}}</td>
+          <td>{{ document.dateOfExpiration | date:'medium' }}  </td>
+          <td>{{document.active ? 'Active' : 'Not active'}}</td>
           <td>
-            <mat-icon href="{{document.url}}" aria-hidden="false" aria-label="Download icon">download</mat-icon>
+            <a href="{{document.url}}" target="_blank">
+              <mat-icon aria-hidden="false" aria-label="Visibility icon">visibility</mat-icon>
+            </a>
           </td>
         </tr>
       </ng-template>

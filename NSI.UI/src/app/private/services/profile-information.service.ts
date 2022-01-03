@@ -10,12 +10,10 @@ export class ProfileInformationService {
   constructor(private http: HttpClient) { }
 
   public getUserInformation(userEmail: string) {
-    console.log('email u service',userEmail);
-    console.log(localStorage.getItem('Token'));
     const httpOptions = {
       headers: new HttpHeaders({
         'Authorization': 'Bearer ' + JSON.parse(localStorage.getItem('Token'))
-      }), 
+      }),
       params: {
         email: userEmail
       }
@@ -27,7 +25,7 @@ export class ProfileInformationService {
     const httpOptions = {
       headers: new HttpHeaders({
         'Authorization': 'Bearer ' + JSON.parse(localStorage.getItem('Token'))
-      }), 
+      }),
       params: {
         email: userEmail
       }

@@ -49,7 +49,7 @@ export class HomeMenuComponent implements OnInit {
         next: (result) => {
           this.setLoginDisplay();
         },
-        error: (error) => console.log(error)
+        error: (error) => (error)
       }
     );
   }
