@@ -68,7 +68,15 @@ export class RolesListComponent implements OnInit {
   }
 
   deleteRole(): void {
-    //console.log('delete');
+    this.rolesService.deleteRole(this.selectedRole.id).subscribe((res: any) => {
+      if (res.success === 'Succeeded') {
+        this.fetchRoles();
+        this.notifier.notify('success', 'Role deleted!');
+      }
+      else if (res.success === 'Failed') {
+        this.notifier.notify('error', 'This role is assign to some user, please remove it from that user!');
+      }
+    });
   }
 
   updateRole(): void {

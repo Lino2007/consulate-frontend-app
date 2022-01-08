@@ -63,11 +63,9 @@ export class RolesService {
     const httpOptions = {
       headers: new HttpHeaders({
         'Authorization': 'Bearer ' + JSON.parse(localStorage.getItem('Token'))
-      }),
-      params: {
-        RoleId: roleId,
-      }
+      })
     };
+    return this.http.delete(environment.url + '/api/Role/' + roleId, httpOptions);
   }
 
 }
