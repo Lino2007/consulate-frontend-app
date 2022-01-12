@@ -22,7 +22,7 @@ export class DocumentRequestsComponent implements OnInit {
   ];
   choosenType = {id: 1, name: 'Passport'};
   reason = '';
-  documents = [];
+  documents: File[] = [] ;
   type = [];
 
   // @ts-ignore
@@ -42,8 +42,12 @@ export class DocumentRequestsComponent implements OnInit {
     let formData: any = new FormData();
     formData.append('type', this.choosenType.name);
     formData.append('reason', this.reason);
-    formData.append('attachments', this.documents);
-    formData.append(`attachmentTypes`, this.type);
+    for (let i = 0; i <= this.documents.length; i++) {
+       formData.append('attachments', this.documents[i]);
+    }
+    for (let i = 0; i <= this.type.length; i++) {
+      formData.append(`attachmentTypes[${i}]`, this.type[i]);
+    }
     if (this.choosenType.name === '' || this.reason === '' || this.documents.length === 0 )
       this.notifier.notify('error', 'Please fill all fields!');
     // tslint:disable-next-line:max-line-length

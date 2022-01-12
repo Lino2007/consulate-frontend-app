@@ -28,7 +28,7 @@
                         <td>{{rq.request.type}}</td>
                         <td>{{rq.request.reason}}</td>
                         <td><p-dropdown [options]="RequestState" [ngModel]="rq.request.state" (onChange)="onChange($event, rq.request)"></p-dropdown></td>
-                        <td>{{rq.request.dateCreated}}</td>
+                        <td>{{rq.request.dateCreated | date:'medium' }}</td>
                     </tr>
                 </ng-template>
                 <ng-template pTemplate="rowexpansion" let-rq>
