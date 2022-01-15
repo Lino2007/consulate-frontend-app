@@ -111,28 +111,31 @@ export class AddConsulComponent implements OnInit {
     return this.form.controls;
   }
 
-  dateToString(date: Date){
-    let day = '';
-    let month = '';
-    if (date?.getMonth() < 11) {
-      date.setMonth(date.getMonth());
-    }
-    if (date?.getDate() < 10) {
-      day = `0${date?.getDate()}`;
-    } else {
-      day = `${date?.getDate()}`;
-    }
-    if (date?.getMonth() < 10) {
-      month = `0${date.getMonth() + 1}`;
-    } else if (date?.getMonth() === 11) {
-      month = `${12}`;
-    } else {
-      // eslint-disable-next-line no-unsafe-optional-chaining
-      month = `${date?.getMonth() + 1}`;
+  dateToString(dateToFormat: Date) {
+    if (dateToFormat) {
+      let day = '';
+      let month = '';
+      if (dateToFormat.getMonth() < 11) {
+        dateToFormat.setMonth(dateToFormat.getMonth());
+      }
+      if (dateToFormat?.getDate() < 10) {
+        day = `0${dateToFormat?.getDate()}`;
+      } else {
+        day = `${dateToFormat?.getDate()}`;
+      }
+
+      if (dateToFormat.getMonth() + 1 < 10) {
+        month = `0${dateToFormat.getMonth() + 1}`;
+      } else if (dateToFormat?.getMonth() === 11) {
+        month = `${12}`;
+      } else {
+        month = `${dateToFormat.getMonth() + 1}`;
+      }
+      const dateString = `${dateToFormat?.getFullYear()}-${month}-${day}`;
+      return dateString;
     }
 
-    const dateString = `${date?.getFullYear()}-${month}-${day}`;
-    return dateString;
+    return '';
   }
 
   submit() {

@@ -47,4 +47,41 @@ export class UserService {
     };
     return this.http.get(environment.url + '/api/User/users', httpOptions);
   }
+
+  // tslint:disable-next-line:typedef
+  public getUserRole(email: string){
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Authorization': 'Bearer ' + JSON.parse(localStorage.getItem('Token'))
+      }),
+      params: {
+        email: email
+      }
+    };
+    return this.http.get(environment.url + '/api/User', httpOptions);
+  }
+
+  public getUserRoles(email: string){
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Authorization': 'Bearer ' + JSON.parse(localStorage.getItem('Token'))
+      }),
+      params: {
+        email: email
+      }
+    };
+    return this.http.get(environment.url + '/api/User/roles', httpOptions);
+  }
+
+  public deleteUser(userEmail: string){
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Authorization': 'Bearer ' + JSON.parse(localStorage.getItem('Token'))
+      }),
+      params: {
+        email: userEmail
+      }
+    };
+    return this.http.delete(environment.url + '/api/User', httpOptions);
+  }
 }

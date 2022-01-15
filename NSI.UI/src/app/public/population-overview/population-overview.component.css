@@ -9,3 +9,16 @@
   margin: 40px 0;
   font-size: 40px;
 }
+
+.deleteButton {
+  background-color: red;
+}
+
+:host ::ng-deep .p-datatable .p-datatable-thead > tr > th {
+  text-align: center;
+}
+
+:host ::ng-deep .p-datatable-tbody  > tr > td {
+  text-align: center;
+  cursor: pointer;
+}

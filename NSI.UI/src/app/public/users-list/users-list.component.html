@@ -3,9 +3,8 @@
 <div class="elements">
   <app-dashboard-vertical-menu></app-dashboard-vertical-menu>
   <div *ngIf="!update">
-    <button class="btn btn-primary mt-3 ml-8 w-25" type="button" [routerLink]="['/add-consul']">Add consul</button>
-    <h1 class="page-title" >Consuls</h1>
-    <p-table [value]="consuls" [paginator]="true" [rows]="10" [showCurrentPageReport]="true" responsiveLayout="scroll"
+    <h1 class="page-title" >Users</h1>
+    <p-table [value]="users" [paginator]="true" [rows]="10" [showCurrentPageReport]="true" responsiveLayout="scroll"
              currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [rowsPerPageOptions]="[10,25,50]">
       <ng-template pTemplate="header">
         <tr>
@@ -16,22 +15,18 @@
           <th>Place of birth</th>
           <th>Country</th>
           <th></th>
-          <th></th>
         </tr>
       </ng-template>
-      <ng-template pTemplate="body" let-consuls>
+      <ng-template pTemplate="body" let-users>
         <tr>
-          <td>{{consuls.firstName}}</td>
-          <td>{{consuls.lastName}}</td>
-          <td>{{consuls.email}}</td>
-          <td>{{consuls.gender}}</td>
-          <td>{{consuls.placeOfBirth}}</td>
-          <td>{{consuls.country}}</td>
+          <td>{{users.firstName}}</td>
+          <td>{{users.lastName}}</td>
+          <td>{{users.email}}</td>
+          <td>{{users.gender}}</td>
+          <td>{{users.placeOfBirth}}</td>
+          <td>{{users.country}}</td>
           <td>
-            <button class="btn btn-primary add-role-btn" type="button" (click)="updateConsul(consuls)">Update</button>
-          </td>
-          <td>
-            <button class="btn btn-primary add-role-btn deleteButton" type="button" (click)="deleteConsul(consuls.email, consuls.firstName, consuls.lastName)" >Delete</button>
+            <button class="btn btn-primary add-role-btn" type="button" (click)="updateUser(users)">Update</button>
           </td>
         </tr>
       </ng-template>
@@ -40,11 +35,11 @@
 
   <div *ngIf="update">
     <button class="btn btn-primary mt-3 ml-8 w-25" type="button" (click)="cancelUpdate()" >Cancel</button>
-    <h1 class="page-title" >Consuls</h1>
+    <h1 class="page-title" >Users</h1>
     <div class="update-content">
-      <h1 class="text-center">Update consul</h1>
-      <label class="labels ml-5 mb-2">Selected consul</label>
-      <input type="text" class="selected-role form-control mb-3" [value]="selectedConsulName" readonly>
+      <h1 class="text-center">Update user</h1>
+      <label class="labels ml-5 mb-2">Selected user</label>
+      <input type="text" class="selected-role form-control mb-3" [value]="selectedUserName" readonly>
 
       <p-table class="table" [value]="roles" responsiveLayout="scroll">
         <ng-template pTemplate="header">
@@ -68,4 +63,3 @@
     </div>
   </div>
 </div>
-

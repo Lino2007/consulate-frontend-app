@@ -30,3 +30,43 @@
 .btn:hover {
   background: #655dd9
 }
+
+.deleteButton {
+  background-color: red;
+}
+
+.update-content {
+  width: 60%;
+  margin: auto;
+}
+
+.selected-role {
+  width: 90%;
+  margin: auto;
+}
+
+.labels {
+  font-size: 15px;
+  margin: 15px 0 5px;
+}
+
+.roles-list {
+  flex: 50%;
+}
+
+.table{
+  flex: 50%;
+}
+
+:host ::ng-deep .p-datatable .p-datatable-thead > tr > th {
+  text-align: center;
+}
+
+:host ::ng-deep .p-datatable-tbody  > tr > td {
+  text-align: center;
+  cursor: pointer;
+}
+
+.saveBtn {
+  text-align: center;
+}

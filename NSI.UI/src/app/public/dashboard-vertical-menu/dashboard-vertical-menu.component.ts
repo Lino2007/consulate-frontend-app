@@ -28,6 +28,9 @@ export class DashboardVerticalMenuComponent implements OnInit {
           if (window.location.pathname === '/add-role' && this.verticalMenu[i].routerLink === '/roles') {
             validPage = true;
           }
+          if (window.location.pathname === '/add-consul' && this.verticalMenu[i].routerLink === '/consuls') {
+            validPage = true;
+          }
           else if (this.verticalMenu[i].routerLink === window.location.pathname) {
             validPage = true;
           }
@@ -60,6 +63,14 @@ export class DashboardVerticalMenuComponent implements OnInit {
         if (permissionsName.indexOf('user:delete') !== -1) {
           this.verticalMenu.splice(this.verticalMenu.length, 0,
             {label: 'Population', icon: 'pi pi-fw pi-users', routerLink: '/population'});
+        }
+        if (permissionsName.indexOf('user:delete') !== -1 ||
+                permissionsName.indexOf('employee:update') !== -1 ||
+                  permissionsName.indexOf('employee:delete') !== -1 ||
+                    permissionsName.indexOf('employee:view') !== -1 ||
+                      permissionsName.indexOf('employee:create') !== -1) {
+          this.verticalMenu.splice(this.verticalMenu.length, 0,
+            {label: 'Users', icon: 'pi pi-fw pi-users', routerLink: '/users'});
         }
         if (permissionsName.indexOf('permission:modify') !== -1) {
           this.verticalMenu.splice(this.verticalMenu.length, 0,

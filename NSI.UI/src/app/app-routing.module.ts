@@ -17,6 +17,8 @@ import {AddRoleComponent} from './public/add-role/add-role.component';
 import {PopulationOverviewComponent} from './public/population-overview/population-overview.component';
 import { RequestProcessingComponent } from './public/request-processing/request-processing.component';
 import { AddConsulComponent } from './public/add-consul/add-consul.component';
+import { UpdateConsulComponent } from './public/update-consul/update-consul.component';
+import { UsersListComponent } from './public/users-list/users-list.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent, pathMatch: 'full' },
@@ -31,11 +33,13 @@ const routes: Routes = [
   { path: 'document-request', component: DocumentRequestsComponent, pathMatch: 'full',  canActivate: [MsalGuard]},
   { path: 'documents', component: DocumentListComponent, pathMatch: 'full',  canActivate: [MsalGuard]},
   { path: 'consuls', component: ConsulsListComponent, pathMatch: 'full',  canActivate: [MsalGuard]},
+  { path: 'users', component: UsersListComponent, pathMatch: 'full',  canActivate: [MsalGuard]},
   { path: 'roles', component: RolesListComponent, pathMatch: 'full',  canActivate: [MsalGuard]},
   { path: 'permissions', component: PermissionsListComponent, pathMatch: 'full',  canActivate: [MsalGuard]},
   { path: 'add-role', component: AddRoleComponent, pathMatch: 'full',  canActivate: [MsalGuard]},
   { path: 'population', component: PopulationOverviewComponent, pathMatch: 'full',  canActivate: [MsalGuard]},
   { path: 'add-consul', component: AddConsulComponent, pathMatch: 'full',  canActivate: [MsalGuard]},
+  { path: 'update-consul', component: UpdateConsulComponent, pathMatch: 'full',  canActivate: [MsalGuard]},
   // dodati path request-processing
 ];
 

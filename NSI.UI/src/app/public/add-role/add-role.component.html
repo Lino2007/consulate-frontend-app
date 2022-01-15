@@ -22,7 +22,7 @@
             <td>{{permission.name}}</td>
             <td>
               <button *ngIf="!validateRolePermission(permission)" class="btn btn-primary add-role-btn" type="button" (click)="addPermission(permission)">Add</button>
-              <button *ngIf="validateRolePermission(permission)" class="btn btn-primary add-role-btn" type="button" (click)="deletePermission(permission)" >Delete</button>
+              <button *ngIf="validateRolePermission(permission)" class="btn btn-primary add-role-btn deleteButton" type="button" (click)="deletePermission(permission)" >Delete</button>
             </td>
           </tr>
         </ng-template>

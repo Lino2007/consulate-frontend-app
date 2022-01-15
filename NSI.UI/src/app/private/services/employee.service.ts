@@ -17,6 +17,7 @@ export class EmployeeService {
         'Authorization': 'Bearer ' + JSON.parse(localStorage.getItem('Token'))
       })
     };
+    console.log(environment.url + '/api/Employee');
     return this.http.get(environment.url + '/api/Employee', httpOptions);
   }
 
@@ -39,6 +40,25 @@ export class EmployeeService {
       }),
     };
     return this.http.post(environment.url + '/api/Employee', JSON.stringify(body), httpOptions);
+  }
+
+  public getEmployeeIdByEmail(email: string) {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Authorization': 'Bearer ' + JSON.parse(localStorage.getItem('Token'))
+      })
+    };
+    return this.http.get(environment.url + '/api/Employee', httpOptions);
+  }
+
+  public getEmployeesAndUsers(){
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Authorization': 'Bearer ' + JSON.parse(localStorage.getItem('Token'))
+      })
+    };
+    console.log(environment.url + '/api/Employee/all');
+    return this.http.get(environment.url + '/api/Employee/all', httpOptions);
   }
 
 }

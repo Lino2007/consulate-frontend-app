@@ -84,3 +84,7 @@
     display: inline-flex;
   }
 }
+
+.deleteButton {
+  background-color: red;
+}
