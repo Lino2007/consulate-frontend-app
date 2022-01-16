@@ -4,9 +4,11 @@
 # https://docs.microsoft.com/azure/devops/pipelines/languages/javascript
 
 trigger:
-- main
-- prod
-- uat
+  batch: true
+  branches:
+    include:
+    - main
+    - prod
 
 pool:
   vmImage: ubuntu-latest
@@ -16,8 +18,6 @@ variables:
     buildConfiguration: production
   ${{ if eq(variables['Build.SourceBranchName'], 'main') }}:
     buildConfiguration: development
-  ${{ if eq(variables['Build.SourceBranchName'], 'uat') }}:
-    buildConfiguration: uat
 
 steps:
 - task: NodeTool@0
