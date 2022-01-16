@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {MsalService} from "@azure/msal-angular";
+import {environment} from "../../../environments/environment";
 
 @Component({
   selector: 'app-logout',
@@ -15,7 +16,7 @@ export class LogoutComponent implements OnInit {
 
   logout(): void {
     this.authService.logoutRedirect({
-      postLogoutRedirectUri: 'http://localhost:4200'
+      postLogoutRedirectUri: environment.appRedirectUri
     });
     localStorage.setItem('Role', JSON.stringify(''));
     localStorage.setItem('Token', JSON.stringify(''));
