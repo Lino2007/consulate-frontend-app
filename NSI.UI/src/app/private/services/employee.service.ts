@@ -17,7 +17,6 @@ export class EmployeeService {
         'Authorization': 'Bearer ' + JSON.parse(localStorage.getItem('Token'))
       })
     };
-    console.log(environment.url + '/api/Employee');
     return this.http.get(environment.url + '/api/Employee', httpOptions);
   }
 
@@ -57,7 +56,6 @@ export class EmployeeService {
         'Authorization': 'Bearer ' + JSON.parse(localStorage.getItem('Token'))
       })
     };
-    console.log(environment.url + '/api/Employee/all');
     return this.http.get(environment.url + '/api/Employee/all', httpOptions);
   }
 

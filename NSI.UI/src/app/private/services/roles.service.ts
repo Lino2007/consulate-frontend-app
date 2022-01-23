@@ -94,7 +94,6 @@ export class RolesService {
     const object = {};
     object['userId'] = userId;
     object['roleId'] = roleId;
-    console.log(JSON.stringify(object));
     return this.http.post(environment.url + '/api/Role/user', JSON.stringify(object), httpOptions);
     }
 

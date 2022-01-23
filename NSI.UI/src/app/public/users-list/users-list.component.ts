@@ -21,7 +21,7 @@ export class UsersListComponent implements OnInit {
   selectedUserName!: string;
   deletedRoles = [];
   addedRoles = [];
-  
+
   newRolesUnsaved = [];
 
   constructor(private notifierService: NotifierService,
@@ -36,7 +36,6 @@ export class UsersListComponent implements OnInit {
   // tslint:disable-next-line:typedef
   fetchEmployeesAndUsers() {
     this.employeeService.getEmployeesAndUsers().subscribe((res: any) => {
-      console.log(res.data);
       this.users = res.data;
     });
   }
@@ -87,7 +86,7 @@ export class UsersListComponent implements OnInit {
     this.deletedRoles = [];
     this.roles = [];
     this.newRolesUnsaved = [];
-    
+
     this.users = [];
     this.update = false;
     this.notifierService.notify('success', 'User updated successfully');

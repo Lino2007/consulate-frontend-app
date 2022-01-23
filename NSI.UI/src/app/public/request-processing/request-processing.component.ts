@@ -33,18 +33,15 @@ export class RequestProcessingComponent implements OnInit {
     this.requestService.getReqItems((this.first/this.rows), this.rows).subscribe(
       data => {
       if (data["success"] !== "Succeeded") {
-        console.error(data["error"]["message"]);
         this.loading = false;
         return;
       }
 
       this.totalRecords = data["paging"]["totalRecords"];
       this.requestPayload = data["data"];
-      console.warn(this.requestPayload);
       this.loading = false;
-    }, 
+    },
     error => {
-      console.error("API is not available!");
       this.loading = false;
     });
   }
@@ -54,7 +51,6 @@ export class RequestProcessingComponent implements OnInit {
     this.requestService.updateRequestItem({id: req.id, requestState: event.value})
     .subscribe(response => {
       if (response["success"] !== "Succeeded") {
-        console.error(response["error"]["message"]);
         this.loading = false;
         return;
       }
@@ -62,7 +58,6 @@ export class RequestProcessingComponent implements OnInit {
       this.loading = false;
     },
     error => {
-      console.error("API is not available!");
       this.loading = false;
     });
   }
